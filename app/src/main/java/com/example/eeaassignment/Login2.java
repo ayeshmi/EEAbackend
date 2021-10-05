@@ -57,7 +57,7 @@ public class Login2 extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
                 if(response.isSuccessful()){
-                    Log.d("myTag", "This is my message"+password.getText().toString());
+                  //  Log.d("myTag", "This is my message"+password.getText().toString());
                     Toast.makeText(com.example.eeaassignment.Login2.this,"Login Successful", Toast.LENGTH_LONG).show();
                     LoginResponse loginResponse = response.body();
 
@@ -70,7 +70,7 @@ public class Login2 extends AppCompatActivity {
                     },700);
 
                 }else{
-                    Toast.makeText(com.example.eeaassignment.Login2.this,"Login Failed", Toast.LENGTH_LONG).show();
+                    Toast.makeText(com.example.eeaassignment.Login2.this,"Login Failed,Check Username and Password", Toast.LENGTH_LONG).show();
 
                 }
 

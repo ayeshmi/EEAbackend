@@ -13,12 +13,14 @@ public class Homepage extends AppCompatActivity {
  ViewFlipper v_flipper;
  Button login;
  Button search;
+ Button contactUs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         login=(Button)findViewById(R.id.button3);
         search=(Button)findViewById(R.id.button);
+        contactUs=(Button)findViewById(R.id.contactus);
 
         int images[]={R.drawable.luanchingpage,R.drawable.lunchingimage};
         v_flipper=findViewById(R.id.view_flipper);
@@ -34,6 +36,12 @@ public class Homepage extends AppCompatActivity {
                 openActivity1();
             }
         });
+        contactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                contactus();
+            }
+        });
 
         for(int image:images){
             flipperImage(image);
@@ -43,11 +51,15 @@ public class Homepage extends AppCompatActivity {
     }
 
     private void openActivity4() {
-        Intent intent=new Intent(this,Login1.class);
+        Intent intent=new Intent(this,AdminHomePage.class);
         startActivity(intent);
     }
     private void openActivity1() {
         Intent intent=new Intent(this,SearchMedicine.class);
+        startActivity(intent);
+    }
+    private void contactus() {
+        Intent intent=new Intent(this,AdminHomePage.class);
         startActivity(intent);
     }
     public void flipperImage(int image){

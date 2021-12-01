@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,9 +26,9 @@ public class Login2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
-        username = findViewById(R.id.editTextTextPersonName);
+        username = findViewById(R.id.name);
         password = findViewById(R.id.editTextTextPassword2);
-        btnLogin = findViewById(R.id.button4);
+        btnLogin = findViewById(R.id.submit);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,12 +64,23 @@ public class Login2 extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            List<String> role =loginResponse.getRoles();
+                            String roleName=role.get(0).toString();
+                            if(roleName.equals("ROLE_USER")){
 
-                            startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.Login2.class).putExtra("data",loginResponse.getUsername()));
-                        }
+                                startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.Homepage.class).putExtra("data",loginResponse.getEmail()));
+                            }
+                            else{
+
+                                startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.Homepage.class).putExtra("data",loginResponse.getEmail()));
+
+                            }
+
+                             }
                     },700);
 
                 }else{
+
                     Toast.makeText(com.example.eeaassignment.Login2.this,"Login Failed,Check Username and Password", Toast.LENGTH_LONG).show();
 
                 }

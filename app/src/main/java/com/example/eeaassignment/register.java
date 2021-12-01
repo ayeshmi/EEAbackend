@@ -25,10 +25,10 @@ public class register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        fullname = findViewById(R.id.editTextTextPersonName);
-        username = findViewById(R.id.editTextTextEmail);
+        fullname = findViewById(R.id.name);
+        username = findViewById(R.id.email);
         password = findViewById(R.id.editTextTextPassword);
-        btnRegister = findViewById(R.id.button4);
+        btnRegister = findViewById(R.id.submit);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,10 +63,9 @@ public class register extends AppCompatActivity {
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
 
                 if(response.isSuccessful()){
-                   // Log.d("myTag", "This is my message"+password.getText().toString());
-                    Toast.makeText(com.example.eeaassignment.register.this,"Register Successful", Toast.LENGTH_LONG).show();
                     RegisterResponse registerResponse = response.body();
-
+                    Log.d("myTag", "This is my message"+registerResponse.getMessage());
+                    Toast.makeText(com.example.eeaassignment.register.this,""+registerResponse.getMessage(), Toast.LENGTH_LONG).show();
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -76,6 +75,7 @@ public class register extends AppCompatActivity {
                     },700);
 
                 }else{
+                    //RegisterResponse registerResponse = response.body();
                     Toast.makeText(com.example.eeaassignment.register.this,"Registration Failed,Check your entered values again.", Toast.LENGTH_LONG).show();
 
                 }

@@ -30,4 +30,15 @@ public class ApiClient {
         return userService;
     }
 
+    public static com.example.eeaassignment.ItemService getItemService(){
+        com.example.eeaassignment.ItemService itemService = getRetrofit().create(com.example.eeaassignment.ItemService.class);
+
+        return itemService;
+    }
+    public static com.example.eeaassignment.ContactUsService getContactUsService(){
+        com.example.eeaassignment.ContactUsService contactUsService = getRetrofit().create(com.example.eeaassignment.ContactUsService.class);
+
+        return contactUsService;
+    }
+
 }

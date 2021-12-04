@@ -1,6 +1,7 @@
 package com.example.eeaassignment;
 
 public class ContactUsRequest {
+    private Long id;
      private String name;
      private String email;
      private String message;
@@ -9,6 +10,14 @@ public class ContactUsRequest {
         this.name = name;
         this.email = email;
         this.message = message;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

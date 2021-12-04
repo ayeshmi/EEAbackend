@@ -12,7 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EEAassignment">
-        <activity android:name=".AddItem"></activity>
+        <activity android:name=".ViewAllContactUs"></activity>
+        <activity android:name=".viewSelectedUserDetails" />
+        <activity android:name=".ViewAllUser" />
+        <activity android:name=".UpdateItemDetails" />
+        <activity android:name=".ViewSelectedItemDetails" />
+        <activity android:name=".ViewAllItems" />
+        <activity android:name=".AddItem" />
         <activity android:name=".TableView" />
         <activity android:name=".AdminHomePage" />
         <activity android:name=".ContactUs" />

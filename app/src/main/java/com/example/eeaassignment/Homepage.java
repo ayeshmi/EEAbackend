@@ -51,7 +51,7 @@ public class Homepage extends AppCompatActivity {
     }
 
     private void openActivity4() {
-        Intent intent=new Intent(this,AdminHomePage.class);
+        Intent intent=new Intent(this,ViewAllUser.class);
         startActivity(intent);
     }
     private void openActivity1() {

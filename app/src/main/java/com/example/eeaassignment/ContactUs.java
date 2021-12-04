@@ -58,7 +58,7 @@ public class ContactUs extends AppCompatActivity {
         // loginRequest.setPassword(password.getText().toString());
 
 
-        Call<RegisterResponse> registerResponseCall = ApiClient.getUserService().contactUs(contactUsRequest);
+        Call<RegisterResponse> registerResponseCall = ApiClient.getContactUsService().contactUs(contactUsRequest);
         registerResponseCall.enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {

@@ -18,11 +18,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ContactUsAdapter extends BaseAdapter {
-    private List<ContactUsRequest> listData;
+public class PharmacistAdapter extends BaseAdapter {
+    private List<Pharmacist> listData;
     private LayoutInflater layoutInflater;
     private Context context;
-    public ContactUsAdapter(Context aContext, List<ContactUsRequest> listData) {
+    public PharmacistAdapter(Context aContext, List<Pharmacist> listData) {
         this.listData = listData;
         layoutInflater = LayoutInflater.from(aContext);
         context=aContext;
@@ -40,10 +40,10 @@ public class ContactUsAdapter extends BaseAdapter {
         return position;
     }
     public View getView(int position, View v, ViewGroup vg) {
-        ItemAdapter.ViewHolder holder;
+        PharmacistAdapter.ViewHolder holder;
         if (v == null) {
-            v = layoutInflater.inflate(R.layout.view_contactus, null);
-            holder = new ItemAdapter.ViewHolder();
+            v = layoutInflater.inflate(R.layout.view_pharmacist_list, null);
+            holder = new PharmacistAdapter.ViewHolder();
             holder.uName = (TextView) v.findViewById(R.id.name);
             holder.uDesignation = (TextView) v.findViewById(R.id.designation);
             holder.view=(Button)v.findViewById(R.id.view);
@@ -51,7 +51,7 @@ public class ContactUsAdapter extends BaseAdapter {
             // holder.uLocation = (TextView) v.findViewById(R.id.location);
             v.setTag(holder);
         } else {
-            holder = (ItemAdapter.ViewHolder) v.getTag();
+            holder = (PharmacistAdapter.ViewHolder) v.getTag();
 
         }
         holder.view.setOnClickListener(
@@ -71,7 +71,7 @@ public class ContactUsAdapter extends BaseAdapter {
                     public void onClick(View view) {
                         Log.d("myTag", "Called the function"+listData.get(position).getId());
                         Long id=listData.get(position).getId();
-                        Call<ResponseBody> loginResponseCall = ApiClient.getContactUsService().deleteContectUs(id);
+                        Call<ResponseBody> loginResponseCall = ApiClient.getPharmacistService().deletePharmacist(id);
                         loginResponseCall.enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -100,8 +100,8 @@ public class ContactUsAdapter extends BaseAdapter {
                     }
                 }
         );
-        holder.uName.setText(listData.get(position).getName());
-        holder.uDesignation.setText(listData.get(position).getName());
+        holder.uName.setText(listData.get(position).getFirstName());
+        holder.uDesignation.setText(listData.get(position).getLastName());
         //holder.uLocation.setText(listData.get(position).getBirthday());
         return v;
     }
@@ -115,12 +115,10 @@ public class ContactUsAdapter extends BaseAdapter {
     }
 
     private void viewSelectedItemDetails(Context context,String id) {
-        Intent intent=new Intent(context,ViewSelectedConatctUs.class);
+        Intent intent=new Intent(context,ViewSelctedPharmacist.class);
         intent.putExtra("itemId", id);
         context.startActivity(intent);
     }
 
 
 }
-
-

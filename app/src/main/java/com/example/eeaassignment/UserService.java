@@ -22,4 +22,6 @@ public interface UserService {
     Call<User> getSelectedUserDetails(@Path(value = "id", encoded = true) Long id);
     @DELETE("deleteUser/{userId}")
     Call<ResponseBody> deleteUser(@Path(value = "userId", encoded = true) Long id);
+    @GET("viewUserByEmailRA/{email}")
+    Call<User> getSelectedUserDetailsByEmail(@Path(value = "email", encoded = true) String email);
 }

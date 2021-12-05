@@ -13,6 +13,7 @@ public class AuthenticationHandler {
         SharedPreferences sharedPreferences = context.getSharedPreferences("auth_details",Context.MODE_PRIVATE);
 
         String token = sharedPreferences.getString("token",null);
+        Log.d("myTag", "This is my messagetoken"+token);
         String role = sharedPreferences.getString("role",null);
 
         Log.i("user_role",userRole);

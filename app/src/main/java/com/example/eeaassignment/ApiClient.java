@@ -40,5 +40,15 @@ public class ApiClient {
 
         return contactUsService;
     }
+    public static com.example.eeaassignment.PharmacistService getPharmacistService(){
+        com.example.eeaassignment.PharmacistService pharmacistService = getRetrofit().create(com.example.eeaassignment.PharmacistService.class);
+
+        return pharmacistService;
+    }
+    public static com.example.eeaassignment.OrderService getOrderService(){
+        com.example.eeaassignment.OrderService orderService = getRetrofit().create(com.example.eeaassignment.OrderService.class);
+
+        return orderService;
+    }
 
 }

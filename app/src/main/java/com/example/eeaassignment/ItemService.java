@@ -22,4 +22,6 @@ public interface ItemService {
     Call<Item> getSelectedItemDetails(@Path(value = "id", encoded = true) Long id);
     @PUT("updateItem/{id}")
     Call<ResponseBody> updateItem(@Body ItemDTO item,@Path(value = "id", encoded = true) Long id);
+    @GET("viewSelectedCategoryItemRA/{name}")
+    Call<List<Item>> getSelectedCategoryItems(@Path(value = "name", encoded = true) String name);
 }

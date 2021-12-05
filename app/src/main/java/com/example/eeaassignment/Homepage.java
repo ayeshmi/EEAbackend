@@ -51,11 +51,11 @@ public class Homepage extends AppCompatActivity {
     }
 
     private void openActivity4() {
-        Intent intent=new Intent(this,ViewAllUser.class);
+        Intent intent=new Intent(this,ViewItemsForCategory.class);
         startActivity(intent);
     }
     private void openActivity1() {
-        Intent intent=new Intent(this,SearchMedicine.class);
+        Intent intent=new Intent(this,Login1.class);
         startActivity(intent);
     }
     private void contactus() {

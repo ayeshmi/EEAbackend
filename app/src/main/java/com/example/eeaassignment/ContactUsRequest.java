@@ -5,6 +5,7 @@ public class ContactUsRequest {
      private String name;
      private String email;
      private String message;
+     private String answer;
 
     public ContactUsRequest(String name, String email, String message) {
         this.name = name;
@@ -42,5 +43,13 @@ public class ContactUsRequest {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }

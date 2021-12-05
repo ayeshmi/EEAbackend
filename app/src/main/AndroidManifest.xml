@@ -12,7 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EEAassignment">
-        <activity android:name=".ViewAllContactUs"></activity>
+        <activity android:name=".ViewItemsForCategory"></activity>
+        <activity android:name=".ViewSelectedItems" />
+        <activity android:name=".ViewProfileDetails" />
+        <activity android:name=".ViewSelctedPharmacist" />
+        <activity android:name=".ViewAllPharmacists" />
+        <activity android:name=".AddPharmacist" />
+        <activity android:name=".ViewSelectedConatctUs" />
+        <activity android:name=".ViewAllContactUs" />
         <activity android:name=".viewSelectedUserDetails" />
         <activity android:name=".ViewAllUser" />
         <activity android:name=".UpdateItemDetails" />

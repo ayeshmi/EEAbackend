@@ -2,7 +2,9 @@ package com.example.eeaassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -22,6 +24,7 @@ public class Login2 extends AppCompatActivity {
 
     EditText username, password;
     Button btnLogin;
+    private SharedPreferences sharedPrefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +63,13 @@ public class Login2 extends AppCompatActivity {
                   //  Log.d("myTag", "This is my message"+password.getText().toString());
                     Toast.makeText(com.example.eeaassignment.Login2.this,"Login Successful", Toast.LENGTH_LONG).show();
                     LoginResponse loginResponse = response.body();
+                    sharedPrefs = Login2.this.getSharedPreferences("auth_details", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPrefs.edit();
+                    editor.putString("token", response.body().getAccessToken());
+                    editor.putString("email", response.body().getEmail());
+                    editor.putString("username", response.body().getUsername());
+                    editor.putString("role", response.body().getRoles().get(0));
+                    editor.apply();
 
                     new Handler().postDelayed(new Runnable() {
                         @Override

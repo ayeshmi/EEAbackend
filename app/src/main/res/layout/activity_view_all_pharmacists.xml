@@ -14,7 +14,7 @@
         android:textSize="24dp" />
 
     <ListView
-        android:id="@+id/contact_list"
+        android:id="@+id/pharmacists_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:dividerHeight="1dp" />

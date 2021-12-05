@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,7 +21,7 @@ import retrofit2.Response;
 
 public class ViewAllContactUs extends AppCompatActivity {
 
-    private List<Item> items;
+    private List<ContactUsRequest> contacts;
     private Button viewButton;
     private Button deleteButton;
     private TextView itemName;
@@ -29,7 +30,7 @@ public class ViewAllContactUs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        String check = AuthenticationHandler.validate(ViewAllContactUs.this, "Admin");
+        String check = AuthenticationHandler.validate(ViewAllContactUs.this, "ROLE_USER");
 
         if (check != null) {
             if (check.equals("Token expired")) return;
@@ -41,18 +42,21 @@ public class ViewAllContactUs extends AppCompatActivity {
 
         String token = "Bearer " + sharedPreferences.getString("token", null);
         String role = sharedPreferences.getString("role", null);
+        String email = sharedPreferences.getString("email", null);
+
+        Log.d("myTag", "This is my email"+email);
 
 
-        Call<List<Item>> getAllitemCall = ApiClient.getItemService().getAllItems();
-        getAllitemCall .enqueue(new Callback<List<Item>>() {
+        Call<List<ContactUsRequest>> getAllcontactCall = ApiClient.getContactUsService().getAllConatctUs();
+        getAllcontactCall .enqueue(new Callback<List<ContactUsRequest>>() {
             @Override
-            public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {
+            public void onResponse(Call<List<ContactUsRequest>> call, Response<List<ContactUsRequest>> response) {
 
-                items = response.body();
+                contacts = response.body();
 
-                if(items != null){
-                    final ListView lv = (ListView) findViewById(R.id.item_list);
-                    lv.setAdapter(new ItemAdapter(ViewAllContactUs.this, items));
+                if(contacts != null){
+                    final ListView lv = (ListView) findViewById(R.id.contact_list);
+                    lv.setAdapter(new ContactUsAdapter(ViewAllContactUs.this, contacts));
                     lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> a, View v, int position, long id) {
@@ -71,7 +75,7 @@ public class ViewAllContactUs extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Item>> call, Throwable t) {
+            public void onFailure(Call<List<ContactUsRequest>> call, Throwable t) {
 
                 Toast.makeText(ViewAllContactUs.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                 //progressDialog.dismiss();

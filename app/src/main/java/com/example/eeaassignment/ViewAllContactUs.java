@@ -63,7 +63,7 @@ public class ViewAllContactUs extends AppCompatActivity implements NavigationVie
             public void onResponse(Call<List<ContactUsRequest>> call, Response<List<ContactUsRequest>> response) {
 
                 contacts = response.body();
-
+                Log.d("myTag", "This is my message"+contacts);
                 if(contacts != null){
                     final ListView lv = (ListView) findViewById(R.id.contact_list);
                     lv.setAdapter(new ContactUsAdapter(ViewAllContactUs.this, contacts));

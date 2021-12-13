@@ -1,15 +1,24 @@
 package com.example.eeaassignment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,8 +54,9 @@ public class UserAdapter extends BaseAdapter {
             v = layoutInflater.inflate(R.layout.list_row, null);
             holder = new ViewHolder();
             holder.uName = (TextView) v.findViewById(R.id.name);
-            holder.uDesignation = (TextView) v.findViewById(R.id.designation);
+
             holder.view=(Button)v.findViewById(R.id.view);
+            holder.image=(ImageView) v.findViewById(R.id.img);
             holder.delete=(Button)v.findViewById(R.id.delete);
            // holder.uLocation = (TextView) v.findViewById(R.id.location);
             v.setTag(holder);
@@ -68,6 +78,9 @@ public class UserAdapter extends BaseAdapter {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+
+
                         Log.d("myTag", "Called the function"+listData.get(position).getId());
                         Long id=listData.get(position).getId();
                         Call<ResponseBody> loginResponseCall = ApiClient.getUserService().deleteUser(id);
@@ -78,7 +91,8 @@ public class UserAdapter extends BaseAdapter {
                                 if(response.isSuccessful()){
                                     Log.d("myTag", "This is my message123");
                                     Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
-
+                                    Intent intent=new Intent(context,ViewAllUser.class);
+                                    context.startActivity(intent);
                                 }else{
                                     Log.d("myTag", "This is my message123dsdsd");
                                     Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
@@ -100,8 +114,25 @@ public class UserAdapter extends BaseAdapter {
                 }
         );
 
+       // String imageURL=listData.get(position)
+        String imageURL=listData.get(position).getImageName();
+        Bitmap bimage=null;
+        InputStream in= null;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        try {
+            URL url = new URL("http://192.168.1.4:8080/api/auth/video/"+imageURL);
+            bimage  = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+
+            holder.image.setImageBitmap(bimage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         holder.uName.setText(listData.get(position).getUsername());
-        holder.uDesignation.setText(listData.get(position).getEmail());
+
+
         //holder.uLocation.setText(listData.get(position).getBirthday());
         return v;
     }
@@ -111,6 +142,7 @@ public class UserAdapter extends BaseAdapter {
         TextView uName;
         TextView uDesignation;
         TextView uLocation;
+        ImageView image;
     }
 
     private void viewSelectedUserDetails(Context context,String id) {
@@ -118,4 +150,6 @@ public class UserAdapter extends BaseAdapter {
         intent.putExtra("itemId", id);
         context.startActivity(intent);
     }
+
+
 }

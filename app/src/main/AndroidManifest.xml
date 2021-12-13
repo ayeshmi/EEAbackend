@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EEAassignment">
-        <activity android:name=".PharmacistHomepage"></activity>
+        <activity android:name=".ViewProfile" />
+        <activity android:name=".PharmacistHomepage" />
         <activity android:name=".UserHomePage" />
         <activity android:name=".ViewSelectedItemOrder" />
         <activity android:name=".ViewItemsForCategory" />

@@ -1,19 +1,29 @@
 package com.example.eeaassignment;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
 
-public class Homepage extends AppCompatActivity {
+import com.google.android.material.navigation.NavigationView;
+
+public class Homepage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
  ViewFlipper v_flipper;
  Button login;
  Button search;
  Button contactUs;
+    private DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +31,7 @@ public class Homepage extends AppCompatActivity {
         login=(Button)findViewById(R.id.button3);
         search=(Button)findViewById(R.id.button);
         contactUs=(Button)findViewById(R.id.contactus);
-
+        drawer = findViewById(R.id.drawer_layout);
         int images[]={R.drawable.luanchingpage,R.drawable.lunchingimage};
         v_flipper=findViewById(R.id.view_flipper);
         login.setOnClickListener(new View.OnClickListener() {
@@ -47,11 +57,25 @@ public class Homepage extends AppCompatActivity {
             flipperImage(image);
 
         }
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+    }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     private void openActivity4() {
-        Intent intent=new Intent(this,ViewItemsForCategory.class);
+        Intent intent=new Intent(this,ViewAllItems.class);
         startActivity(intent);
     }
     private void openActivity1() {

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -23,6 +24,8 @@ import retrofit2.Response;
 public class Login2 extends AppCompatActivity {
 
     EditText username, password;
+    TextView forgetPassword;
+    TextView register;
     Button btnLogin;
     private SharedPreferences sharedPrefs;
     @Override
@@ -32,6 +35,9 @@ public class Login2 extends AppCompatActivity {
         username = findViewById(R.id.name);
         password = findViewById(R.id.editTextTextPassword2);
         btnLogin = findViewById(R.id.submit);
+        register=findViewById(R.id.register);
+        forgetPassword=findViewById(R.id.forgetPassword);
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +49,14 @@ public class Login2 extends AppCompatActivity {
                     //proceed to login
                     login();
                 }
+
+            }
+        });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.register.class).putExtra("data","Ayeshmi"));
 
             }
         });
@@ -68,6 +82,7 @@ public class Login2 extends AppCompatActivity {
                     editor.putString("token", response.body().getAccessToken());
                     editor.putString("email", response.body().getEmail());
                     editor.putString("username", response.body().getUsername());
+                    editor.putString("id", response.body().getId().toString());
                     editor.putString("role", response.body().getRoles().get(0));
                     editor.apply();
 
@@ -76,14 +91,16 @@ public class Login2 extends AppCompatActivity {
                         public void run() {
                             List<String> role =loginResponse.getRoles();
                             String roleName=role.get(0).toString();
-                            if(roleName.equals("ROLE_USER")){
+                            if(roleName.equals("ROLE_ADMIN")){
 
-                                startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.Homepage.class).putExtra("data",loginResponse.getEmail()));
+                                startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.AdminHomePage.class).putExtra("data",loginResponse.getEmail()));
                             }
-                            else{
+                            else if(roleName.equals("ROLE_PHARMACIST")){
 
-                                startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.Homepage.class).putExtra("data",loginResponse.getEmail()));
+                                startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.PharmacistHomepage.class).putExtra("data",loginResponse.getEmail()));
 
+                            }else{
+                                startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.UserHomePage.class).putExtra("data",loginResponse.getEmail()));
                             }
 
                              }

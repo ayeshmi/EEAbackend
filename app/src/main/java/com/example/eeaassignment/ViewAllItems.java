@@ -1,11 +1,15 @@
 package com.example.eeaassignment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -13,21 +17,25 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
+
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ViewAllItems extends AppCompatActivity {
+public class ViewAllItems extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private List<Item> items;
     private Button viewButton;
     private Button deleteButton;
     private TextView itemName;
+    private DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_view_all_items);
+        drawer = findViewById(R.id.drawer_layout);
 
         String check = AuthenticationHandler.validate(ViewAllItems.this, "Admin");
 
@@ -35,7 +43,9 @@ public class ViewAllItems extends AppCompatActivity {
             if (check.equals("Token expired")) return;
         }
 
-        setContentView(R.layout.activity_view_all_items);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
 
         SharedPreferences sharedPreferences = getSharedPreferences("auth_details", Context.MODE_PRIVATE);
 
@@ -81,5 +91,21 @@ public class ViewAllItems extends AppCompatActivity {
         //ArrayList userList = results;
 
     }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+        NavBarHandler.navBarHandler(item,ViewAllItems.this);
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 }

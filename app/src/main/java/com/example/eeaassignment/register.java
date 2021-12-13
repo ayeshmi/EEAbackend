@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import retrofit2.Call;
@@ -20,6 +21,7 @@ public class register extends AppCompatActivity {
 
     EditText username, password,fullname;
     Button btnRegister;
+    TextView loginText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class register extends AppCompatActivity {
         username = findViewById(R.id.email);
         password = findViewById(R.id.editTextTextPassword);
         btnRegister = findViewById(R.id.submit);
+        loginText=findViewById(R.id.loginText);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +50,15 @@ public class register extends AppCompatActivity {
                     //proceed to login
                     login();
                 }
+
+            }
+        });
+
+        loginText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(com.example.eeaassignment.register.this, com.example.eeaassignment.Login2.class).putExtra("data","Ayeshmi"));
 
             }
         });

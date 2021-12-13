@@ -26,6 +26,15 @@ public class Order {
     public Order() {
     }
 
+    public Order(Long itemId, String clientEmail,Long userId,String price,String quantity,String itemName) {
+        this.itemId = itemId;
+        this.userId = userId;
+        this.clientEmail = clientEmail;
+        this.price=price;
+        this.quantity=quantity;
+        this.itemName=itemName;
+    }
+
     public Long getId() {
         return id;
     }

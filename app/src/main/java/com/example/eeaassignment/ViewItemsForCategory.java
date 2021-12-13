@@ -29,7 +29,7 @@ public class ViewItemsForCategory extends AppCompatActivity {
 
                 if(items != null){
                     final ListView lv = (ListView) findViewById(R.id.item_list);
-                    lv.setAdapter(new ItemAdapter(ViewItemsForCategory.this, items));
+                    lv.setAdapter(new CategoryItemAdapter(ViewItemsForCategory.this, items));
                     lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> a, View v, int position, long id) {

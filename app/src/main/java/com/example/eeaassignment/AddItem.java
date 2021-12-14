@@ -81,7 +81,7 @@ public class AddItem extends AppCompatActivity {
     }
 
     private void addItem(String itemName, String itemType, String category, String price, String description, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem, String image) {
-        ItemDTO item=new ItemDTO(itemName,itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem,image);
+        ItemDTO item=new ItemDTO(itemName,itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem);
         Call<ResponseBody> loginResponseCall = ApiClient.getItemService().addItem(item);
         loginResponseCall.enqueue(new Callback<ResponseBody>() {
             @Override

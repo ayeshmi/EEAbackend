@@ -205,6 +205,9 @@
                 android:layout_marginEnd="28dp"
                 android:layout_marginRight="28dp"
                 android:ems="10"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:inputType="textPersonName"
                 android:text="Name" />
 
@@ -327,7 +330,7 @@
                 android:text="Description" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/submitItem"
                 android:layout_width="136dp"
                 android:layout_height="35dp"
                 android:layout_alignParentTop="true"

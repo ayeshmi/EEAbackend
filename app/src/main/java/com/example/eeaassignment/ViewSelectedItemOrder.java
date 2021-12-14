@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import okhttp3.ResponseBody;
@@ -23,6 +25,7 @@ public class ViewSelectedItemOrder extends AppCompatActivity {
     private String itemId;
     private long id;
     private Item viewItem;
+    EditText itemName, itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem,image,availability;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,19 @@ public class ViewSelectedItemOrder extends AppCompatActivity {
         itemId=intent.getStringExtra("itemId");
         id=Long.parseLong(itemId);
 
+        itemName=(EditText)findViewById(R.id.name);
+        itemType=(EditText)findViewById(R.id.itemType);
+        category=(EditText)findViewById(R.id.specification);
+        price=(EditText)findViewById(R.id.price);
+        description=(EditText)findViewById(R.id.description);
+        suitableFor=(EditText)findViewById(R.id.suitableFor);
+        howToUse=(EditText)findViewById(R.id.howToUse);
+        ingredients=(EditText)findViewById(R.id.ingredients);
+        delivery=(EditText)findViewById(R.id.delivery);
+        returnItem=(EditText)findViewById(R.id.returnItem);
+
+        availability=(EditText)findViewById(R.id.availbilty);
+
         Call<Item> getItem = ApiClient.getItemService().getSelectedItemDetails(id);
         getItem .enqueue(new Callback<Item>() {
             @Override
@@ -56,7 +72,19 @@ public class ViewSelectedItemOrder extends AppCompatActivity {
                 viewItem = response.body();
 
                 if(viewItem != null){
-                    Toast.makeText(ViewSelectedItemOrder.this, "Something went wrong!"+viewItem.getDescription(), Toast.LENGTH_SHORT).show();
+                    itemName.setText(viewItem.getName());
+                    itemType.setText(viewItem.getItemType());
+                    category.setText(viewItem.getSpecifications());
+                    price.setText(viewItem.getPrice());
+                    description.setText(viewItem.getDescription());
+                    suitableFor.setText(viewItem.getSuitableFor());
+                    howToUse.setText(viewItem.getHowToUse());
+                    ingredients.setText(viewItem.getIngredients());
+                    delivery.setText(viewItem.getDelivery());
+                    returnItem.setText(viewItem.getReturnItem());
+                    availability.setText(viewItem.getAvailability());
+
+
                 }
                 else{
 
@@ -82,8 +110,8 @@ public class ViewSelectedItemOrder extends AppCompatActivity {
         addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Order order=new Order(viewItem.getId(),email,uid,viewItem.getPrice(),cart.getText().toString(),viewItem.getName());
+                Log.d("myTag", "This is my message"+viewItem.getImageName());
+                Order order=new Order(viewItem.getId(),email,uid,viewItem.getPrice(),cart.getText().toString(),viewItem.getName(),viewItem.getImage(),viewItem.getImageName());
                 Call<ResponseBody> addTocart = ApiClient.getOrderService().addItemToCart(order);
                 addTocart .enqueue(new Callback<ResponseBody>() {
                     @Override

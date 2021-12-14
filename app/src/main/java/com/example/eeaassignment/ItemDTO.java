@@ -27,7 +27,9 @@ public class ItemDTO {
 
     private String image;
 
-    public ItemDTO(String name, String price, String description, String specifications, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem, String itemType, String image) {
+    private String imageName;
+
+    public ItemDTO(String name, String price, String description, String specifications, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem, String itemType) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -38,7 +40,7 @@ public class ItemDTO {
         this.delivery = delivery;
         this.returnItem = returnItem;
         this.itemType = itemType;
-        this.image = image;
+
     }
 
 
@@ -147,4 +149,11 @@ public class ItemDTO {
         this.image = image;
     }
 
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
 }

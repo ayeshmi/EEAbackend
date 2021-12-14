@@ -22,7 +22,7 @@
                 android:title="View Items" />
             <item
                 android:id="@+id/view_cart"
-                android:title="View Orders" />
+                android:title="View Cart" />
             <item
                 android:id="@+id/view_orders"
                 android:title="View Orders" />

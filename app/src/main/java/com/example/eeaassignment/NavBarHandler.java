@@ -68,7 +68,72 @@ public class NavBarHandler {
 
             case R.id.profile:
 
-                Intent intent8 = new Intent(context, ContactUs.class);
+                Intent intent8 = new Intent(context, ViewProfileDetails.class);
+                intent8.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent8);
+                break;
+
+            case R.id.logout:
+
+                Intent intent9 = new Intent(context, ContactUs.class);
+                intent9.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent9);
+                break;
+
+
+        }
+
+    }
+
+    public static void navBarHandlerUser( MenuItem item, Context context){
+        String pageName=null;
+
+        switch (item.getItemId()) {
+            case R.id.home:
+                Intent intent = new Intent(context, UserHomePage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent);
+                break;
+
+            case R.id.contactUs:
+                Intent intent1 = new Intent(context, ContactUs.class);
+                intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent1);
+
+                break;
+
+            case R.id.aboutUs:
+
+                Intent intent2 = new Intent(context, ViewAllItems.class);
+                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent2);
+                break;
+
+            case R.id.view_item:
+
+                Intent intent3 = new Intent(context, UserHomePage.class);
+                intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent3);
+                break;
+
+            case R.id.view_cart:
+
+                Intent intent4 = new Intent(context, ViewAllUser.class);
+                intent4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent4);
+                break;
+
+            case R.id.view_contactus:
+
+                Intent intent5 = new Intent(context, ViewAllPharmacists.class);
+                intent5.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent5);
+                break;
+
+
+            case R.id.profile:
+
+                Intent intent8 = new Intent(context, ViewProfileDetails.class);
                 intent8.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent8);
                 break;

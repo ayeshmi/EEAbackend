@@ -2,6 +2,7 @@ package com.example.eeaassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,11 +17,14 @@ import retrofit2.Response;
 
 public class ViewItemsForCategory extends AppCompatActivity {
     private List<Item>  items;
+    private String category;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent=getIntent();
+        category=intent.getStringExtra("data");
         setContentView(R.layout.activity_view_items_for_category);
-        Call<List<Item>> getAllItemCall = ApiClient.getItemService().getSelectedCategoryItems("FirstAid");
+        Call<List<Item>> getAllItemCall = ApiClient.getItemService().getSelectedCategoryItems(category);
         getAllItemCall .enqueue(new Callback<List<Item>>() {
             @Override
             public void onResponse(Call<List<Item>> call, Response<List<Item>> response) {

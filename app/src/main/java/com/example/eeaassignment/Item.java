@@ -28,7 +28,9 @@ public class Item {
 
     private String image;
 
-    public Item(String name, String price, String description, String specifications, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem, String itemType, String image) {
+    private String imageName;
+
+    public Item(String name, String price, String description, String specifications, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem, String itemType) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -39,7 +41,7 @@ public class Item {
         this.delivery = delivery;
         this.returnItem = returnItem;
         this.itemType = itemType;
-        this.image = image;
+
     }
 
     public Long getId() {
@@ -144,5 +146,13 @@ public class Item {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 }

@@ -20,7 +20,7 @@ public class UpdateItemDetails extends AppCompatActivity {
     private String itemId;
     private Long id;
     private Item viewItem;
-    EditText itemName, itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem,image;
+    EditText itemName, itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem,image,availability;
     Button submit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,19 @@ public class UpdateItemDetails extends AppCompatActivity {
         itemId=intent.getStringExtra("itemId");
         id=Long.parseLong(itemId);
 
+        itemName=(EditText)findViewById(R.id.name);
+        itemType=(EditText)findViewById(R.id.itemType);
+        category=(EditText)findViewById(R.id.specification);
+        price=(EditText)findViewById(R.id.price);
+        description=(EditText)findViewById(R.id.description);
+        suitableFor=(EditText)findViewById(R.id.suitableFor);
+        howToUse=(EditText)findViewById(R.id.howToUse);
+        ingredients=(EditText)findViewById(R.id.ingredients);
+        delivery=(EditText)findViewById(R.id.delivery);
+        returnItem=(EditText)findViewById(R.id.returnItem);
+        submit=(Button) findViewById(R.id.submitItem);
+        availability=(EditText)findViewById(R.id.availbilty);
+
         Call<Item> getItem = ApiClient.getItemService().getSelectedItemDetails(id);
         getItem .enqueue(new Callback<Item>() {
             @Override
@@ -40,7 +53,18 @@ public class UpdateItemDetails extends AppCompatActivity {
                 viewItem = response.body();
 
                 if(viewItem != null){
-                    Toast.makeText(UpdateItemDetails.this, "Something went wrong!"+viewItem.getDescription(), Toast.LENGTH_SHORT).show();
+                    itemName.setText(viewItem.getName());
+                    itemType.setText(viewItem.getItemType());
+                    category.setText(viewItem.getSpecifications());
+                    price.setText(viewItem.getPrice());
+                    description.setText(viewItem.getDescription());
+                    suitableFor.setText(viewItem.getSuitableFor());
+                    howToUse.setText(viewItem.getHowToUse());
+                    ingredients.setText(viewItem.getIngredients());
+                    delivery.setText(viewItem.getDelivery());
+                    returnItem.setText(viewItem.getReturnItem());
+                    availability.setText(viewItem.getAvailability());
+
                 }
                 else{
 
@@ -60,18 +84,7 @@ public class UpdateItemDetails extends AppCompatActivity {
             }
         });
 
-        itemName=(EditText)findViewById(R.id.itemName);
-        itemType=(EditText)findViewById(R.id.itemType);
-        category=(EditText)findViewById(R.id.category);
-        price=(EditText)findViewById(R.id.price);
-        description=(EditText)findViewById(R.id.description);
-        suitableFor=(EditText)findViewById(R.id.suitableFor);
-        howToUse=(EditText)findViewById(R.id.howToUse);
-        ingredients=(EditText)findViewById(R.id.ingredients);
-        delivery=(EditText)findViewById(R.id.delivery);
-        returnItem=(EditText)findViewById(R.id.returnItem);
-        image=(EditText)findViewById(R.id.image);
-        submit=(Button) findViewById(R.id.submitItem);
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,13 +95,13 @@ public class UpdateItemDetails extends AppCompatActivity {
                 if(TextUtils.isEmpty(itemName.getText().toString()) || TextUtils.isEmpty(itemType.getText().toString()) || TextUtils.isEmpty(category.getText().toString())
                         || TextUtils.isEmpty(price.getText().toString()) || TextUtils.isEmpty(description.getText().toString())|| TextUtils.isEmpty(suitableFor.getText().toString())
                         || TextUtils.isEmpty(howToUse.getText().toString()) || TextUtils.isEmpty(ingredients.getText().toString()) || TextUtils.isEmpty(delivery.getText().toString())
-                        || TextUtils.isEmpty(returnItem.getText().toString()) || TextUtils.isEmpty(image.getText().toString())){
+                        || TextUtils.isEmpty(returnItem.getText().toString()) ){
                     Toast.makeText(com.example.eeaassignment.UpdateItemDetails.this,"All Inputs are Required, Check again.", Toast.LENGTH_LONG).show();
                 }else{
                     //proceed to login
                     updateItem(itemName.getText().toString(),itemType.getText().toString(),category.getText().toString(),price.getText().toString(),description.getText().toString(),
                             suitableFor.getText().toString(), howToUse.getText().toString(),ingredients.getText().toString(),delivery.getText().toString(),returnItem.getText().toString(),
-                            image.getText().toString(),id);
+                            id);
                 }
 
             }
@@ -96,8 +109,8 @@ public class UpdateItemDetails extends AppCompatActivity {
 
     }
 
-    private void updateItem(String itemName, String itemType, String category, String price, String description, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem, String image,Long id) {
-        ItemDTO item=new ItemDTO(itemName,itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem,image);
+    private void updateItem(String itemName, String itemType, String category, String price, String description, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem,Long id) {
+        ItemDTO item=new ItemDTO(itemName,itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem);
         Call<ResponseBody> loginResponseCall = ApiClient.getItemService().updateItem(item,id);
         loginResponseCall.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -108,6 +121,8 @@ public class UpdateItemDetails extends AppCompatActivity {
 
                     ResponseBody responseBody = response.body();
                     Toast.makeText(com.example.eeaassignment.UpdateItemDetails.this,"Item is succesfully added", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(com.example.eeaassignment.UpdateItemDetails.this, com.example.eeaassignment.ViewAllItems.class).putExtra("data","Ayeshmi"));
+
 
                 }else{
 

@@ -21,18 +21,26 @@ public class Order {
 
     private String status;
 
-    private String itemName;
+    private String totalPrice;
+
+    private String name;
+
+    private String itemImage;
+
+    private String imageName;
 
     public Order() {
     }
 
-    public Order(Long itemId, String clientEmail,Long userId,String price,String quantity,String itemName) {
+    public Order(Long itemId, String clientEmail,Long userId,String price,String quantity,String name,String itemImage,String imageName) {
         this.itemId = itemId;
         this.userId = userId;
         this.clientEmail = clientEmail;
         this.price=price;
         this.quantity=quantity;
-        this.itemName=itemName;
+        this.name=name;
+        this.itemImage=itemImage;
+        this.imageName=imageName;
     }
 
     public Long getId() {
@@ -107,11 +115,35 @@ public class Order {
         this.status = status;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getName() {
+        return name;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getItemImage() {
+        return itemImage;
+    }
+
+    public void setItemImage(String itemImage) {
+        this.itemImage = itemImage;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public String getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

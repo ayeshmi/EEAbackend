@@ -12,6 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EEAassignment">
+        <activity android:name=".ViewCompletedOrders"></activity>
+        <activity android:name=".ViewCancelOrders" />
+        <activity android:name=".ViewPendingOrders" />
+        <activity android:name=".ViewOrderDetails" />
+        <activity android:name=".ViewCart" />
         <activity android:name=".ViewProfile" />
         <activity android:name=".PharmacistHomepage" />
         <activity android:name=".UserHomePage" />

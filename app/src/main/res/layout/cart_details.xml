@@ -17,7 +17,9 @@
         app:cardMaxElevation="12dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
+
         <RelativeLayout
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -26,12 +28,18 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="72dp"
-                android:layout_marginRight="72dp"
-                android:layout_marginBottom="108dp"
+                android:layout_marginStart="160dp"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="37dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginBottom="104dp"
                 android:text="Hello Ayeshmi"
                 android:textSize="17dp"
                 android:textStyle="bold" />
@@ -40,13 +48,17 @@
                 android:id="@+id/designation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginStart="160dp"
+                android:layout_marginLeft="160dp"
                 android:layout_marginTop="77dp"
-                android:layout_marginEnd="71dp"
-                android:layout_marginRight="71dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginRight="70dp"
                 android:layout_marginBottom="64dp"
                 android:text="Hello Ayeshmi"
                 android:textSize="17dp"
@@ -54,15 +66,39 @@
 
             <ImageView
                 android:id="@+id/img"
-                android:layout_width="100dp"
-                android:layout_height="98dp"
+                android:layout_width="117dp"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="227dp"
-                android:layout_marginRight="227dp"
-                android:layout_marginBottom="31dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="208dp"
+                android:layout_marginRight="208dp"
+                android:layout_marginBottom="24dp"
                 app:srcCompat="@drawable/babycare" />
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="76dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="213dp"
+                android:layout_marginLeft="213dp"
+                android:layout_marginTop="104dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginRight="52dp"
+                android:layout_marginBottom="24dp"
+                android:text="Button" />
 
         </RelativeLayout>
 

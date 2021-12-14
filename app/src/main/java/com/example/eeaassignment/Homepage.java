@@ -75,15 +75,15 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void openActivity4() {
-        Intent intent=new Intent(this,ViewAllContactUs.class);
+        Intent intent=new Intent(this,ViewPendingOrders.class);
         startActivity(intent);
     }
     private void openActivity1() {
-        Intent intent=new Intent(this,Login1.class);
+        Intent intent=new Intent(this,Login2.class);
         startActivity(intent);
     }
     private void contactus() {
-        Intent intent=new Intent(this,AdminHomePage.class);
+        Intent intent=new Intent(this,ViewCart.class);
         startActivity(intent);
     }
     public void flipperImage(int image){

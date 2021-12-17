@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login2"
-    tools:context=".register">
+    android:id="@+id/drawer_layout"
+    tools:context=".Register">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,6 +28,7 @@
             android:layout_marginRight="67dp"
             android:background="@drawable/round_corner"
             android:backgroundTint="#E4DFDF"
+            android:paddingLeft="10dp"
             android:cursorVisible="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
@@ -53,6 +55,7 @@
             android:layout_marginTop="327dp"
             android:layout_marginEnd="67dp"
             android:layout_marginRight="67dp"
+            android:paddingLeft="10dp"
             android:background="@drawable/round_corner"
             android:backgroundTint="#E4DFDF"
             android:ems="10"
@@ -177,6 +180,7 @@
             android:layout_marginBottom="241dp"
             android:background="@drawable/round_corner"
             android:backgroundTint="#E4DFDF"
+            android:paddingLeft="10dp"
             android:cursorVisible="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
@@ -223,6 +227,7 @@
             android:layout_marginLeft="51dp"
             android:layout_marginEnd="67dp"
             android:layout_marginRight="67dp"
+            android:paddingLeft="10dp"
             android:layout_marginBottom="123dp"
             android:background="@drawable/round_corner"
             android:backgroundTint="#E4DFDF"
@@ -237,5 +242,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.888" />
     </RelativeLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/admin_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

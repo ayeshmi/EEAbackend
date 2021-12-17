@@ -1,6 +1,8 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.dto;
 
-public class ContactUsRequest {
+import java.io.Serializable;
+
+public class ContactUsRequest implements Serializable {
     private Long id;
      private String name;
      private String email;

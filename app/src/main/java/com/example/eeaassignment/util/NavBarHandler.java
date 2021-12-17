@@ -1,12 +1,28 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.util;
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
+import com.example.eeaassignment.AdminHomePage;
+import com.example.eeaassignment.ViewCancelOrders;
+import com.example.eeaassignment.ViewCart;
+import com.example.eeaassignment.ContactUs;
+import com.example.eeaassignment.R;
+import com.example.eeaassignment.UserHomePage;
+import com.example.eeaassignment.ViewAllContactUs;
+import com.example.eeaassignment.ViewAllItems;
+import com.example.eeaassignment.ViewAllPharmacists;
+import com.example.eeaassignment.ViewAllUser;
+import com.example.eeaassignment.ViewCompletedOrders;
+import com.example.eeaassignment.ViewContactUsPerUser;
+import com.example.eeaassignment.ViewOrderDetails;
+import com.example.eeaassignment.ViewPendingOrders;
+import com.example.eeaassignment.ViewProfileDetails;
 
 public class NavBarHandler {
+
+
     public static void navBarHandler( MenuItem item, Context context){
         String pageName=null;
 
@@ -75,9 +91,7 @@ public class NavBarHandler {
 
             case R.id.logout:
 
-                Intent intent9 = new Intent(context, ContactUs.class);
-                intent9.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                context.startActivity(intent9);
+                AuthenticationHandler.logout(context);
                 break;
 
 
@@ -118,14 +132,14 @@ public class NavBarHandler {
 
             case R.id.view_cart:
 
-                Intent intent4 = new Intent(context, ViewAllUser.class);
+                Intent intent4 = new Intent(context, ViewCart.class);
                 intent4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent4);
                 break;
 
             case R.id.view_contactus:
 
-                Intent intent5 = new Intent(context, ViewAllPharmacists.class);
+                Intent intent5 = new Intent(context, ViewContactUsPerUser.class);
                 intent5.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent5);
                 break;
@@ -140,12 +154,34 @@ public class NavBarHandler {
 
             case R.id.logout:
 
-                Intent intent9 = new Intent(context, ContactUs.class);
+                AuthenticationHandler.logout(context);
+                break;
+            case R.id.view_cancel:
+
+                Intent intent9 = new Intent(context, ViewCancelOrders.class);
                 intent9.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent9);
                 break;
+            case R.id.view_completed:
 
+                Intent intent10 = new Intent(context, ViewCompletedOrders.class);
+                intent10.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent10);
+                break;
 
+            case R.id.view_pending:
+
+                Intent intent11= new Intent(context, ViewPendingOrders.class);
+                intent11.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent11);
+                break;
+
+            case R.id.view_orders:
+
+                Intent intent12= new Intent(context, ViewOrderDetails.class);
+                intent12.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent12);
+                break;
         }
 
     }

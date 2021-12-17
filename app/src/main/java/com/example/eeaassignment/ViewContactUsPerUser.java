@@ -8,15 +8,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.eeaassignment.adapter.CartAdapter;
-import com.example.eeaassignment.model.Order;
+import com.example.eeaassignment.adapter.ContactUsAdapter;
+import com.example.eeaassignment.dto.ContactUsRequest;
+import com.example.eeaassignment.model.Item;
 import com.example.eeaassignment.service.ApiClient;
+import com.example.eeaassignment.util.AuthenticationHandler;
 import com.example.eeaassignment.util.NavBarHandler;
 import com.google.android.material.navigation.NavigationView;
 
@@ -26,13 +29,21 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ViewCancelOrders extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class ViewContactUsPerUser extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
-    private List<Order> order;
+    private List<ContactUsRequest> contacts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_cancel_orders);
+        setContentView(R.layout.activity_view_contact_us_per_user);
+
+        String check = AuthenticationHandler.validate(ViewContactUsPerUser.this, "ROLE_USER");
+
+        if (check != null) {
+            if (check.equals("Token expired")) return;
+        }
+
+        setContentView(R.layout.activity_view_all_contact_us);
         drawer = findViewById(R.id.drawer_layout);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -42,32 +53,32 @@ public class ViewCancelOrders extends AppCompatActivity implements NavigationVie
 
         String token = "Bearer " + sharedPreferences.getString("token", null);
         String role = sharedPreferences.getString("role", null);
-        String email= sharedPreferences.getString("email", null);
+        String emails= sharedPreferences.getString("email", null);
         String userID= sharedPreferences.getString("id", null);
         Long uid=Long.parseLong(userID);
 
-        Call<List<Order>> getAllCartCall = ApiClient.getOrderService().viewCancelOrders(uid);
-        getAllCartCall.enqueue(new Callback<List<Order>>() {
+
+        Call<List<ContactUsRequest>> getAllcontactCall = ApiClient.getContactUsService().viewContactDetailsPerUser(uid);
+        getAllcontactCall .enqueue(new Callback<List<ContactUsRequest>>() {
             @Override
-            public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
+            public void onResponse(Call<List<ContactUsRequest>> call, Response<List<ContactUsRequest>> response) {
 
-                order = response.body();
-
-                if(order != null){
-                    final ListView lv = (ListView) findViewById(R.id.cart_list);
-
-                    lv.setAdapter(new CartAdapter(ViewCancelOrders.this, order));
+                contacts = response.body();
+                Log.d("myTag", "This is my message"+contacts);
+                if(contacts != null){
+                    final ListView lv = (ListView) findViewById(R.id.contact_list);
+                    lv.setAdapter(new ContactUsAdapter(ViewContactUsPerUser.this, contacts));
                     lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-                            ListItem user = (ListItem) lv.getItemAtPosition(position);
-                            Toast.makeText(ViewCancelOrders.this, "Selected :" + " " + user.getName()+", "+ user.getLocation(), Toast.LENGTH_SHORT).show();
+                            Item item = (Item) lv.getItemAtPosition(position);
+                            Toast.makeText(ViewContactUsPerUser.this, "Selected :" + " " + item.getDelivery()+", "+ item.getDelivery(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
                 else{
 
-                    Toast.makeText(ViewCancelOrders.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewContactUsPerUser.this, "No Records!", Toast.LENGTH_SHORT).show();
 
                 }
                 // progressDialog.dismiss();
@@ -75,18 +86,19 @@ public class ViewCancelOrders extends AppCompatActivity implements NavigationVie
             }
 
             @Override
-            public void onFailure(Call<List<Order>> call, Throwable t) {
+            public void onFailure(Call<List<ContactUsRequest>> call, Throwable t) {
 
-                Toast.makeText(ViewCancelOrders.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewContactUsPerUser.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                 //progressDialog.dismiss();
 
             }
         });
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        NavBarHandler.navBarHandlerUser(item,ViewCancelOrders.this);
+        NavBarHandler.navBarHandler(item,ViewContactUsPerUser.this);
 
         drawer.closeDrawer(GravityCompat.START);
         return true;

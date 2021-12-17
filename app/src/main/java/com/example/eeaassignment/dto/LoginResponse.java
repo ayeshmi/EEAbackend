@@ -1,4 +1,4 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.dto;
 
 import java.util.List;
 

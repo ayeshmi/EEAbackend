@@ -1,12 +1,9 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.adapter;
 
-import android.Manifest;
 import android.content.Context;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
@@ -26,8 +22,12 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+
+import com.example.eeaassignment.service.ApiClient;
+import com.example.eeaassignment.model.Item;
+import com.example.eeaassignment.R;
+import com.example.eeaassignment.UpdateItemDetails;
+import com.example.eeaassignment.ViewAllItems;
 
 
 public class ItemAdapter extends BaseAdapter {
@@ -98,7 +98,7 @@ public class ItemAdapter extends BaseAdapter {
                                                 if(response.isSuccessful()){
                                                     Log.d("myTag", "This is my message123");
                                                     Toast.makeText(context, "User is succesfully deleted.", Toast.LENGTH_SHORT).show();
-                                                    Intent intent=new Intent(context,ViewAllItems.class);
+                                                    Intent intent=new Intent(context, ViewAllItems.class);
                                                     context.startActivity(intent);
                                                 }else{
                                                     Log.d("myTag", "This is my message123dsdsd");
@@ -149,7 +149,7 @@ public class ItemAdapter extends BaseAdapter {
     }
 
     private void viewSelectedItemDetails(Context context,String id) {
-        Intent intent=new Intent(context,UpdateItemDetails.class);
+        Intent intent=new Intent(context, UpdateItemDetails.class);
         intent.putExtra("itemId", id);
         context.startActivity(intent);
     }

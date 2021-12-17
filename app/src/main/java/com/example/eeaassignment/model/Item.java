@@ -1,6 +1,8 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.model;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
 
     private Long id;
 

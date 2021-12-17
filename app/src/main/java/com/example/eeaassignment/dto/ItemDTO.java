@@ -1,4 +1,4 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.dto;
 
 public class ItemDTO {
     private Long id;

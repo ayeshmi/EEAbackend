@@ -8,12 +8,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.eeaassignment.dto.LoginRequest;
+import com.example.eeaassignment.dto.LoginResponse;
+import com.example.eeaassignment.service.ApiClient;
 
 import java.util.List;
 
@@ -56,7 +59,7 @@ public class Login2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(com.example.eeaassignment.Login2.this, com.example.eeaassignment.register.class).putExtra("data","Ayeshmi"));
+                startActivity(new Intent(com.example.eeaassignment.Login2.this, Register.class).putExtra("data","Ayeshmi"));
 
             }
         });
@@ -108,7 +111,7 @@ public class Login2 extends AppCompatActivity {
 
                 }else{
 
-                    Toast.makeText(com.example.eeaassignment.Login2.this,"Login Failed,Check Username and Password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(com.example.eeaassignment.Login2.this,"Login Failed,Check Username and Password Again", Toast.LENGTH_LONG).show();
 
                 }
 
@@ -116,7 +119,7 @@ public class Login2 extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(com.example.eeaassignment.Login2.this,"Throwable "+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.eeaassignment.Login2.this,"Error:  "+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 
             }
         });

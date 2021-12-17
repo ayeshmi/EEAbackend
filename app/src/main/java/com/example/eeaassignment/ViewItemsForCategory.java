@@ -9,6 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.eeaassignment.model.Item;
+import com.example.eeaassignment.service.ApiClient;
+
 import java.util.List;
 
 import retrofit2.Call;

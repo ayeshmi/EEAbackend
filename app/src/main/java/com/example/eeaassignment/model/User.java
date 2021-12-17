@@ -1,6 +1,8 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Long id;
     private String username;
     private String email;
@@ -11,6 +13,13 @@ public class User {
 
     public User(){
 
+    }
+
+    public User(String username, String email, String birthday, String address) {
+        this.username = username;
+        this.email = email;
+        this.birthday = birthday;
+        this.address = address;
     }
 
     public Long getId() {

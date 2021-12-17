@@ -1,4 +1,4 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.model;
 
 public class RegisterRequest {
     private String username;

@@ -79,7 +79,7 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
         startActivity(intent);
     }
     private void openActivity1() {
-        Intent intent=new Intent(this,Login2.class);
+        Intent intent=new Intent(this,Login1.class);
         startActivity(intent);
     }
     private void contactus() {

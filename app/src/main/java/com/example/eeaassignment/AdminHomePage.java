@@ -5,21 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
 
+import com.example.eeaassignment.model.User;
+import com.example.eeaassignment.util.NavBarHandler;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class AdminHomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private List<User>  users;

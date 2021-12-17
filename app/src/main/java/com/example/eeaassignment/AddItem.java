@@ -1,13 +1,10 @@
 package com.example.eeaassignment;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.List;
+import com.example.eeaassignment.dto.ItemDTO;
+import com.example.eeaassignment.service.ApiClient;
+import com.example.eeaassignment.util.AuthenticationHandler;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

@@ -8,7 +8,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +16,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.eeaassignment.adapter.ItemAdapter;
+import com.example.eeaassignment.model.Item;
+import com.example.eeaassignment.service.ApiClient;
+import com.example.eeaassignment.util.AuthenticationHandler;
+import com.example.eeaassignment.util.NavBarHandler;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;

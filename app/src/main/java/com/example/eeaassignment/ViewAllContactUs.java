@@ -17,6 +17,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.eeaassignment.adapter.ContactUsAdapter;
+import com.example.eeaassignment.dto.ContactUsRequest;
+import com.example.eeaassignment.model.Item;
+import com.example.eeaassignment.service.ApiClient;
+import com.example.eeaassignment.util.AuthenticationHandler;
+import com.example.eeaassignment.util.NavBarHandler;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
@@ -77,10 +83,9 @@ public class ViewAllContactUs extends AppCompatActivity implements NavigationVie
                 }
                 else{
 
-                    Toast.makeText(ViewAllContactUs.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewAllContactUs.this, "No Records!", Toast.LENGTH_SHORT).show();
 
                 }
-                // progressDialog.dismiss();
 
             }
 

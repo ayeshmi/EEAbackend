@@ -1,6 +1,8 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.model;
 
-public class Pharmacist {
+import java.io.Serializable;
+
+public class Pharmacist implements Serializable {
 
     private Long id;
 

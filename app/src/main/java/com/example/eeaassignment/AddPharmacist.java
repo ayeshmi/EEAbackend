@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.eeaassignment.model.Pharmacist;
+import com.example.eeaassignment.service.ApiClient;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

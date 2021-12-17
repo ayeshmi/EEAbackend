@@ -35,7 +35,7 @@ Button register;
         startActivity(intent);
     }
     private void registerActivity() {
-        Intent intent=new Intent(this,register.class);
+        Intent intent=new Intent(this, Register.class);
         startActivity(intent);
     }
 }

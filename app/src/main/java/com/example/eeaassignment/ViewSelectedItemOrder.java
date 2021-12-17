@@ -6,13 +6,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.eeaassignment.model.Item;
+import com.example.eeaassignment.model.Order;
+import com.example.eeaassignment.service.ApiClient;
+import com.example.eeaassignment.util.AuthenticationHandler;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -112,7 +115,7 @@ public class ViewSelectedItemOrder extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d("myTag", "This is my message"+viewItem.getImageName());
                 Order order=new Order(viewItem.getId(),email,uid,viewItem.getPrice(),cart.getText().toString(),viewItem.getName(),viewItem.getImage(),viewItem.getImageName());
-                Call<ResponseBody> addTocart = ApiClient.getOrderService().addItemToCart(order);
+                Call<ResponseBody> addTocart = ApiClient.getOrderService().addItemToCart(order,uid);
                 addTocart .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

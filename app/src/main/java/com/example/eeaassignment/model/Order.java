@@ -1,6 +1,8 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.model;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable {
 
     private Long id;
 

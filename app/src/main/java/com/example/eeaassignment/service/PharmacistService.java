@@ -1,4 +1,6 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.service;
+
+import com.example.eeaassignment.model.Pharmacist;
 
 import java.util.List;
 

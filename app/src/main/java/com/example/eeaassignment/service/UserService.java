@@ -1,4 +1,10 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.service;
+
+import com.example.eeaassignment.dto.LoginRequest;
+import com.example.eeaassignment.dto.LoginResponse;
+import com.example.eeaassignment.model.RegisterRequest;
+import com.example.eeaassignment.model.RegisterResponse;
+import com.example.eeaassignment.model.User;
 
 import java.util.List;
 
@@ -26,6 +32,6 @@ public interface UserService {
     @GET("viewUserByEmailRA/{email}")
     Call<User> getSelectedUserDetailsByEmail(@Path(value = "email", encoded = true) String email);
 
-    @PUT("updateUser/{userId}")
-    Call<ResponseBody> updateUser(@Path(value = "userId", encoded = true) Long id);
+    @PUT("updateUserRA/")
+    Call<ResponseBody> updateUser(@Body User user);
 }

@@ -1,4 +1,7 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.service;
+
+import com.example.eeaassignment.model.Item;
+import com.example.eeaassignment.dto.ItemDTO;
 
 import java.util.List;
 

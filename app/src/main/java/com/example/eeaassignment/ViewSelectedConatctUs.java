@@ -2,15 +2,12 @@ package com.example.eeaassignment;
 
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
@@ -19,9 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.eeaassignment.dto.ContactUsRequest;
+import com.example.eeaassignment.service.ApiClient;
+import com.example.eeaassignment.util.NavBarHandler;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -68,12 +66,13 @@ public class ViewSelectedConatctUs extends AppCompatActivity implements Navigati
                     name.setText(viewItem.getName());
                     email.setText(viewItem.getEmail());
                     message.setText(viewItem.getMessage());
-                    Toast.makeText(ViewSelectedConatctUs.this, "Something went wrong!"+viewItem.getEmail(), Toast.LENGTH_SHORT).show();
+                    answer.setText(viewItem.getAnswer());
+                    Toast.makeText(ViewSelectedConatctUs.this, "View ContactUs Details!", Toast.LENGTH_SHORT).show();
                     Log.d("myTag", "method is called");
                 }
                 else{
 
-                    Toast.makeText(ViewSelectedConatctUs.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewSelectedConatctUs.this, "No Record Found!", Toast.LENGTH_SHORT).show();
 
                 }
                 // progressDialog.dismiss();

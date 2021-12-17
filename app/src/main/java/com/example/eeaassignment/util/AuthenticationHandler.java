@@ -1,4 +1,4 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 import com.auth0.android.jwt.JWT;
+import com.example.eeaassignment.Login2;
 
 public class AuthenticationHandler {
     public static String validate(Context context, String userRole){
@@ -50,7 +51,7 @@ public class AuthenticationHandler {
         editor.putString("role", null);
         editor.apply();
 
-        Intent intent = new Intent(context,Login2.class);
+        Intent intent = new Intent(context, Login2.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(intent);
         ((Activity)context).finish();

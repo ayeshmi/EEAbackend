@@ -13,11 +13,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.eeaassignment.model.RegisterRequest;
+import com.example.eeaassignment.model.RegisterResponse;
+import com.example.eeaassignment.service.ApiClient;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class register extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     EditText username, password,fullname;
     Button btnRegister;
@@ -38,13 +42,13 @@ public class register extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(TextUtils.isEmpty(username.getText().toString()) ){
-                    Toast.makeText(com.example.eeaassignment.register.this,"Username Required", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this,"Username Required", Toast.LENGTH_LONG).show();
                 }
                 else if(TextUtils.isEmpty(password.getText().toString())){
-                    Toast.makeText(com.example.eeaassignment.register.this," Password Required", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this," Password Required", Toast.LENGTH_LONG).show();
                 }
                 else if(TextUtils.isEmpty(fullname.getText().toString())){
-                    Toast.makeText(com.example.eeaassignment.register.this," Fullname Required", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this," Fullname Required", Toast.LENGTH_LONG).show();
                 }
                 else{
                     //proceed to login
@@ -58,7 +62,7 @@ public class register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(com.example.eeaassignment.register.this, com.example.eeaassignment.Login2.class).putExtra("data","Ayeshmi"));
+                startActivity(new Intent(Register.this, com.example.eeaassignment.Login2.class).putExtra("data","Ayeshmi"));
 
             }
         });
@@ -77,18 +81,22 @@ public class register extends AppCompatActivity {
                 if(response.isSuccessful()){
                     RegisterResponse registerResponse = response.body();
                     Log.d("myTag", "This is my message"+registerResponse.getMessage());
-                    Toast.makeText(com.example.eeaassignment.register.this,""+registerResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this,""+registerResponse.getMessage(), Toast.LENGTH_LONG).show();
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            if(registerResponse.getMessage().equals("Incorrect format for email, try again.")){
 
-                            startActivity(new Intent(com.example.eeaassignment.register.this, com.example.eeaassignment.Login2.class).putExtra("data",registerResponse.getMessage()));
-                        }
+                            }
+                            else{
+                                startActivity(new Intent(Register.this, com.example.eeaassignment.Login2.class).putExtra("data",registerResponse.getMessage()));
+                            }
+                            }
                     },700);
 
                 }else{
                     //RegisterResponse registerResponse = response.body();
-                    Toast.makeText(com.example.eeaassignment.register.this,"Registration Failed,Check your entered values again.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this,"Registration Failed,Check your entered values again.", Toast.LENGTH_LONG).show();
 
                 }
 
@@ -96,7 +104,7 @@ public class register extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                Toast.makeText(com.example.eeaassignment.register.this,"Throwable "+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Register.this,"Throwable "+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 
             }
         });

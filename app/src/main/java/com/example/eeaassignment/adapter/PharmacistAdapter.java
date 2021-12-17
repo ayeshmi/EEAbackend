@@ -1,4 +1,4 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,6 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+
+import com.example.eeaassignment.service.ApiClient;
+import com.example.eeaassignment.model.Pharmacist;
+import com.example.eeaassignment.R;
+import com.example.eeaassignment.ViewAllPharmacists;
+import com.example.eeaassignment.ViewSelctedPharmacist;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -97,7 +103,7 @@ public class PharmacistAdapter extends BaseAdapter {
                                                 if(response.isSuccessful()){
                                                     Log.d("myTag", "This is my message123");
                                                     Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
-                                                    Intent intent=new Intent(context,ViewAllPharmacists.class);
+                                                    Intent intent=new Intent(context, ViewAllPharmacists.class);
                                                     context.startActivity(intent);
                                                 }else{
                                                     Log.d("myTag", "This is my message123dsdsd");
@@ -143,19 +149,7 @@ public class PharmacistAdapter extends BaseAdapter {
         InputStream in= null;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        try {
 
-                URL url = new URL("http://192.168.1.4:8080/api/auth/video/"+imageURL);
-                bimage  = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-
-
-
-
-            holder.image.setImageBitmap(bimage);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         holder.uName.setText(listData.get(position).getFirstName());
 
@@ -172,7 +166,7 @@ public class PharmacistAdapter extends BaseAdapter {
     }
 
     private void viewSelectedItemDetails(Context context,String id) {
-        Intent intent=new Intent(context,ViewSelctedPharmacist.class);
+        Intent intent=new Intent(context, ViewSelctedPharmacist.class);
         intent.putExtra("itemId", id);
         context.startActivity(intent);
     }

@@ -1,4 +1,7 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.service;
+
+import com.example.eeaassignment.model.RegisterResponse;
+import com.example.eeaassignment.dto.ContactUsRequest;
 
 import java.util.List;
 
@@ -12,8 +15,8 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ContactUsService {
-    @POST("contactusRA/")
-    Call<RegisterResponse> contactUs(@Body ContactUsRequest contactUsRequest);
+    @POST("contactusRA/{Id}")
+    Call<RegisterResponse> contactUs(@Body ContactUsRequest contactUsRequest,@Path(value = "Id", encoded = true) Long id);
     @GET("allConatctUsRA/")
     Call<List<ContactUsRequest>> getAllConatctUs();
     @DELETE("deleteContactUsRA/{Id}")
@@ -22,4 +25,7 @@ public interface ContactUsService {
     Call<ContactUsRequest> getSelectedContactDetails(@Path(value = "id", encoded = true) Long id);
     @PUT("contactusReplyRA/{id}")
     Call<ResponseBody> replyConatctUs(@Path(value = "id", encoded = true) Long id,@Body ContactUsRequest contactUsRequest);
+
+    @GET("allUserConatctUsPerUserRA/{id}")
+    Call<List<ContactUsRequest>> viewContactDetailsPerUser(@Path(value = "id", encoded = true) Long id);
 }

@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login2"
-    tools:context=".register">
+    tools:context=".Register">
 
     <EditText
         android:id="@+id/name"
         android:layout_width="293dp"
         android:layout_height="46dp"
-
+        android:paddingLeft="10dp"
         android:backgroundTint="#E4DFDF"
         android:background="@drawable/round_corner"
         android:ems="10"
@@ -26,10 +26,11 @@
         android:id="@+id/email"
         android:layout_width="293dp"
         android:layout_height="46dp"
-        android:backgroundTint="#E4DFDF"
         android:background="@drawable/round_corner"
+        android:backgroundTint="#E4DFDF"
         android:ems="10"
         android:inputType="textPersonName"
+        android:paddingLeft="10dp"
         app:barrierMargin="@dimen/material_emphasis_high_type"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,37 +90,13 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Already an account? "
-        android:textColor="#151414"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="108dp"
-        android:layout_marginRight="108dp"
-        android:background="#FFFFFF"
-        android:text="Login"
-        android:textColor="#2196F3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter your password:"
+        android:text="Enter your problem:"
         android:textColor="#0E0C0C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,19 +107,20 @@
 
     <EditText
         android:id="@+id/message"
-        android:layout_width="283dp"
-        android:layout_height="83dp"
-        android:backgroundTint="#E4DFDF"
+        android:layout_width="298dp"
+        android:layout_height="72dp"
         android:background="@drawable/round_corner"
+        android:backgroundTint="#E4DFDF"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:paddingLeft="10dp"
         android:textColor="#0C0C0C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.759" />
+        app:layout_constraintVertical_bias="0.754" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

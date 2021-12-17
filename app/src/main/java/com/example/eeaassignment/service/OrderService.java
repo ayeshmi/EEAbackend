@@ -1,4 +1,6 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.service;
+
+import com.example.eeaassignment.model.Order;
 
 import java.util.List;
 
@@ -11,8 +13,8 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface OrderService {
-    @POST("addToCartRA/")
-    Call<ResponseBody> addItemToCart(@Body Order order);
+    @POST("addToCartRA/{id}")
+    Call<ResponseBody> addItemToCart(@Body Order order, @Path(value = "id", encoded = true) Long id);
 
     @GET("viewCartRA/{id}")
     Call<List<Order>> viewCartDetailsByUser(@Path(value = "id", encoded = true) Long id);

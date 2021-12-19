@@ -44,16 +44,17 @@ public class ViewSelectedConatctUs extends AppCompatActivity implements Navigati
         setContentView(R.layout.activity_view_selected_conatct_us);
         drawer = findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        Intent intent = getIntent();
-        conatctId = intent.getStringExtra("itemId");
         id = Long.parseLong(conatctId);
         name = (EditText) findViewById(R.id.name);
         email = (EditText) findViewById(R.id.email);
         message = (EditText) findViewById(R.id.message);
         answer = (EditText) findViewById(R.id.answer);
         submit = (Button) findViewById(R.id.submit);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        Intent intent = getIntent();
+        conatctId = intent.getStringExtra("itemId");
 
         Call<ContactUsRequest> getItem = ApiClient.getContactUsService().getSelectedContactDetails(id);
         getItem .enqueue(new Callback<ContactUsRequest>() {
@@ -93,7 +94,7 @@ public class ViewSelectedConatctUs extends AppCompatActivity implements Navigati
             public void onClick(View view) {
 
                 if(TextUtils.isEmpty(answer.getText().toString())){
-                    Toast.makeText(com.example.eeaassignment.ViewSelectedConatctUs.this,"Username / Password Required", Toast.LENGTH_LONG).show();
+                    Toast.makeText(com.example.eeaassignment.ViewSelectedConatctUs.this,"Answer is required!", Toast.LENGTH_LONG).show();
                 }else{
                     viewItem.setAnswer(answer.getText().toString());
                     //proceed to login
@@ -119,14 +120,14 @@ public class ViewSelectedConatctUs extends AppCompatActivity implements Navigati
 
                if(response.isSuccessful()){
                    //  Log.d("myTag", "This is my message"+password.getText().toString());
-                   Toast.makeText(com.example.eeaassignment.ViewSelectedConatctUs.this,"Login Successful", Toast.LENGTH_LONG).show();
+                   Toast.makeText(com.example.eeaassignment.ViewSelectedConatctUs.this,"Your answer is sent to the client!", Toast.LENGTH_LONG).show();
 
 
 
 
                }else{
 
-                   Toast.makeText(com.example.eeaassignment.ViewSelectedConatctUs.this,"Login Failed,Check Username and Password", Toast.LENGTH_LONG).show();
+                   Toast.makeText(com.example.eeaassignment.ViewSelectedConatctUs.this,"Check user inputs and try again!", Toast.LENGTH_LONG).show();
 
                }
 

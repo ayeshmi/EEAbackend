@@ -1,5 +1,6 @@
 package com.example.eeaassignment.adapter;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,11 +15,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+
 import com.example.eeaassignment.service.ApiClient;
 import com.example.eeaassignment.R;
-import com.example.eeaassignment.UpdateItemDetails;
 import com.example.eeaassignment.model.User;
 import com.example.eeaassignment.ViewAllUser;
+import com.example.eeaassignment.ViewSelectedUserDetails;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -81,38 +84,54 @@ public class UserAdapter extends BaseAdapter {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+                        alertDialog.setTitle("Alert");
+                        alertDialog.setMessage("Are you sure you want to delete this user  ?"  );
+                        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                        Long id=listData.get(position).getId();
+                                        Call<ResponseBody> loginResponseCall = ApiClient.getUserService().deleteUser(id);
+                                        loginResponseCall.enqueue(new Callback<ResponseBody>() {
+                                            @Override
+                                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                                                if(response.isSuccessful()){
+
+                                                    Toast.makeText(context, "User is successfully deleted.", Toast.LENGTH_SHORT).show();
+                                                    Intent intent=new Intent(context, ViewAllUser.class);
+                                                    context.startActivity(intent);
+                                                }else{
+
+                                                    Toast.makeText(context, "An error occurred while deleting the user", Toast.LENGTH_SHORT).show();
+
+                                                }
+
+                                            }
+                                            @Override
+                                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                                Toast.makeText(context, "Something went wrong check again.", Toast.LENGTH_SHORT).show();
+
+                                            }
 
 
+                                        });
+                                        // Toast.makeText(holder.this,"Username / Password Required", Toast.LENGTH_LONG).show();
+                                        Log.d("myTag", "Item is deleted");
 
-                        Log.d("myTag", "Called the function"+listData.get(position).getId());
-                        Long id=listData.get(position).getId();
-                        Call<ResponseBody> loginResponseCall = ApiClient.getUserService().deleteUser(id);
-                        loginResponseCall.enqueue(new Callback<ResponseBody>() {
-                            @Override
-                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                                    }
+                                });
+                        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
 
-                                if(response.isSuccessful()){
-                                    Log.d("myTag", "This is my message123");
-                                    Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
-                                    Intent intent=new Intent(context, ViewAllUser.class);
-                                    context.startActivity(intent);
-                                }else{
-                                    Log.d("myTag", "This is my message123dsdsd");
-                                    Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
-
-                                }
-
-                            }
-                            @Override
-                            public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-                                Log.d("myTag", "This is my messageFail");
-                            }
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
 
 
-                        });
-                        // Toast.makeText(holder.this,"Username / Password Required", Toast.LENGTH_LONG).show();
-                        Log.d("myTag", "Item is deleted");
                     }
                 }
         );
@@ -149,7 +168,7 @@ public class UserAdapter extends BaseAdapter {
     }
 
     private void viewSelectedUserDetails(Context context,String id) {
-        Intent intent=new Intent(context, UpdateItemDetails.class);
+        Intent intent=new Intent(context, ViewSelectedUserDetails.class);
         intent.putExtra("itemId", id);
         context.startActivity(intent);
     }

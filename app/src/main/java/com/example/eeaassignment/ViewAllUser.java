@@ -49,13 +49,13 @@ public class ViewAllUser extends AppCompatActivity implements NavigationView.OnN
                         @Override
                         public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                             ListItem user = (ListItem) lv.getItemAtPosition(position);
-                            Toast.makeText(ViewAllUser.this, "Selected :" + " " + user.getName()+", "+ user.getLocation(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewAllUser.this, "View Users Details " , Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
                 else{
 
-                    Toast.makeText(ViewAllUser.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewAllUser.this, "No Record!", Toast.LENGTH_SHORT).show();
 
                 }
                 // progressDialog.dismiss();

@@ -18,10 +18,24 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="-31dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            android:layout_marginBottom="-98dp"
             android:dividerHeight="1dp" />
+
+        <Button
+            android:id="@+id/addNewItem"
+            app:backgroundTint="#0E7ED8"
+            android:background="@drawable/round_corner"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="33dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="94dp"
+            android:text="ADD NEW ITEM" />
 
     </RelativeLayout>
 

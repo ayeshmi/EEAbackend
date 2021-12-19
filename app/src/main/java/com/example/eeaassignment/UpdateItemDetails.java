@@ -3,17 +3,25 @@ package com.example.eeaassignment;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.eeaassignment.dto.ItemDTO;
 import com.example.eeaassignment.model.Item;
 import com.example.eeaassignment.service.ApiClient;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -24,6 +32,7 @@ public class UpdateItemDetails extends AppCompatActivity {
     private String itemId;
     private Long id;
     private Item viewItem;
+    private ImageView imageView;
     EditText itemName, itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem,image,availability;
     Button submit;
     @Override
@@ -47,8 +56,8 @@ public class UpdateItemDetails extends AppCompatActivity {
         delivery=(EditText)findViewById(R.id.delivery);
         returnItem=(EditText)findViewById(R.id.returnItem);
         submit=(Button) findViewById(R.id.submitItem);
-        availability=(EditText)findViewById(R.id.availbilty);
-
+        availability=(EditText)findViewById(R.id.availability);
+        imageView=(ImageView)findViewById(R.id.image);
         Call<Item> getItem = ApiClient.getItemService().getSelectedItemDetails(id);
         getItem .enqueue(new Callback<Item>() {
             @Override
@@ -68,11 +77,25 @@ public class UpdateItemDetails extends AppCompatActivity {
                     delivery.setText(viewItem.getDelivery());
                     returnItem.setText(viewItem.getReturnItem());
                     availability.setText(viewItem.getAvailability());
+                    Log.d("myTag", "image name"+viewItem.getImageName());
+                    String imageURL=viewItem.getImageName();
+                    Bitmap bimage=null;
+                    InputStream in= null;
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+                    try {
+                        URL url = new URL("http://192.168.1.3:8080/api/auth/video/"+imageURL);
+                        bimage  = BitmapFactory.decodeStream(url.openConnection().getInputStream());
 
+                        imageView.setImageBitmap(bimage);
+                        Toast.makeText(UpdateItemDetails.this, " "+viewItem.getName(), Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 else{
 
-                    Toast.makeText(UpdateItemDetails.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateItemDetails.this, "No Records!", Toast.LENGTH_SHORT).show();
 
                 }
                 // progressDialog.dismiss();
@@ -124,13 +147,13 @@ public class UpdateItemDetails extends AppCompatActivity {
                     //  Log.d("myTag", "This is my message"+password.getText().toString());
 
                     ResponseBody responseBody = response.body();
-                    Toast.makeText(com.example.eeaassignment.UpdateItemDetails.this,"Item is succesfully added", Toast.LENGTH_LONG).show();
+                    Toast.makeText(com.example.eeaassignment.UpdateItemDetails.this,"Item is successfully updated.", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(com.example.eeaassignment.UpdateItemDetails.this, com.example.eeaassignment.ViewAllItems.class).putExtra("data","Ayeshmi"));
 
 
                 }else{
 
-                    Toast.makeText(com.example.eeaassignment.UpdateItemDetails.this,"Login Failed,Check Username and Password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(com.example.eeaassignment.UpdateItemDetails.this,"Check inputs and try again.", Toast.LENGTH_LONG).show();
 
                 }
 
@@ -138,7 +161,7 @@ public class UpdateItemDetails extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(com.example.eeaassignment.UpdateItemDetails.this,"Throwable "+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(com.example.eeaassignment.UpdateItemDetails.this,"Something went wrong! ", Toast.LENGTH_LONG).show();
 
             }
         });

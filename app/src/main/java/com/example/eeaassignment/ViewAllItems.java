@@ -6,6 +6,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -31,18 +32,24 @@ import retrofit2.Response;
 
 public class ViewAllItems extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private List<Item> items;
-    private Button viewButton;
+    private Button addNewItem;
     private Button deleteButton;
     private TextView itemName;
     private DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_all_items);
         drawer = findViewById(R.id.drawer_layout);
-
+        addNewItem=findViewById(R.id.addNewItem);
         String check = AuthenticationHandler.validate(ViewAllItems.this, "Admin");
-
+        addNewItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addNewItem();
+            }
+        });
         if (check != null) {
             if (check.equals("Token expired")) return;
         }
@@ -64,20 +71,20 @@ public class ViewAllItems extends AppCompatActivity implements NavigationView.On
 
                 items = response.body();
 
-                if(items != null){
+                if(items.size() != 0){
                     final ListView lv = (ListView) findViewById(R.id.item_list);
                     lv.setAdapter(new ItemAdapter(ViewAllItems.this, items));
                     lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                             Item item = (Item) lv.getItemAtPosition(position);
-                            Toast.makeText(ViewAllItems.this, "Selected :" + " " + item.getDelivery()+", "+ item.getDelivery(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewAllItems.this, "View All Items", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
                 else{
 
-                    Toast.makeText(ViewAllItems.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewAllItems.this, "No Records!", Toast.LENGTH_SHORT).show();
 
                 }
                 // progressDialog.dismiss();
@@ -95,6 +102,12 @@ public class ViewAllItems extends AppCompatActivity implements NavigationView.On
         //ArrayList userList = results;
 
     }
+
+    private void addNewItem() {
+        Intent intent=new Intent(this,AddItem.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 

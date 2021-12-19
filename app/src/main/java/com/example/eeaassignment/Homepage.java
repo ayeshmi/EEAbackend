@@ -75,7 +75,7 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void openActivity4() {
-        Intent intent=new Intent(this,ViewPendingOrders.class);
+        Intent intent=new Intent(this,AddPharmacist.class);
         startActivity(intent);
     }
     private void openActivity1() {

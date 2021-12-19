@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/drawer_layout"
+    android:background="@drawable/add_item"
     android:layout_height="match_parent"
-    android:background="@drawable/login2"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -12,185 +14,338 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="221dp"
-        android:layout_marginEnd="6dp"
+
+        android:layout_marginStart="0dp"
         android:scrollbars="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="1500dp"
+            android:layout_height="1600dp"
             android:layout_margin="20dp"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/itemName"
+
+            <TextView
+                android:id="@+id/textView25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="995dp"
+                android:text="Ingredients" />
 
-                app:layout_constraintVertical_bias="0.056"
-                tools:layout_editor_absoluteX="43dp" />
-
-            <EditText
-                android:id="@+id/itemType"
+            <TextView
+                android:id="@+id/textView26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.163"
-                tools:layout_editor_absoluteX="50dp" />
-
-            <EditText
-                android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.25"
-                tools:layout_editor_absoluteX="50dp" />
-
-            <EditText
-                android:id="@+id/category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.33"
-                tools:layout_editor_absoluteX="50dp" />
-
-            <EditText
-                android:id="@+id/suitableFor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.408"
-                tools:layout_editor_absoluteX="43dp" />
-
-            <EditText
-                android:id="@+id/howToUse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="50dp" />
-
-            <EditText
-                android:id="@+id/ingredients"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.577"
-                tools:layout_editor_absoluteX="50dp" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="1282dp"
+                android:text="Return" />
 
             <EditText
                 android:id="@+id/delivery"
+                android:layout_width="288dp"
+                android:hint="  Enter item delivery available or not"
+                android:paddingLeft="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="1217dp"
+                android:ems="10"
+                android:layout_height="56dp"
+                android:background="@drawable/round_corner"
+                android:inputType="textPersonName"
+                />
+
+            <TextView
+                android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.642"
-                tools:layout_editor_absoluteX="50dp" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="802dp"
+                android:text="How To Use" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="483dp"
+                android:text="Category" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="604dp"
+                android:text="Suitable For" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="1383dp"
+                android:text="Item Type" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="1174dp"
+                android:text="Delivery" />
 
             <EditText
-                android:id="@+id/returnItem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/howToUse"
+                android:layout_width="283dp"
+                android:layout_height="112dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="853dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.723"
-                tools:layout_editor_absoluteX="50dp" />
-
-            <EditText
-                android:id="@+id/image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.813"
-                tools:layout_editor_absoluteX="43dp" />
-
-            <Button
-                android:id="@+id/submitItem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:hint="  Enter how to use the item"
+                android:paddingLeft="10dp"
+                android:background="@drawable/round_corner"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
 
             <EditText
                 android:id="@+id/description"
+                android:layout_width="283dp"
+                android:layout_height="112dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="350dp"
+                android:ems="10"
+                android:hint="  Enter item description"
+                android:paddingLeft="10dp"
+                android:background="@drawable/round_corner"
+                android:gravity="start|top"
+                android:inputType="textMultiLine" />
+
+            <EditText
+                android:id="@+id/ingredients"
+                android:layout_width="283dp"
+                android:layout_height="112dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="1032dp"
+                android:ems="10"
+                android:hint="  Enter item ingredients"
+                android:paddingLeft="10dp"
+                android:gravity="start|top"
+                android:background="@drawable/round_corner"
+                android:inputType="textMultiLine" />
+
+            <EditText
+                android:id="@+id/specification"
+
+                android:layout_width="283dp"
+                android:layout_height="45dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="522dp"
+                android:background="@drawable/round_corner"
+                android:ems="10"
+                android:hint="  Select item category"
+                android:paddingLeft="10dp"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                />
+
+            <EditText
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:hint="  Enter item name"
+                android:paddingLeft="10dp"
+                android:layout_height="54dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="116dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/round_corner"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.892" />
+                />
+
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="288dp"
+                android:hint="  Enter item price"
+                android:paddingLeft="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/round_corner"
+                android:layout_marginTop="235dp"
+                android:ems="10"
+                android:layout_height="56dp"
+                android:inputType="textPersonName"
+                 />
+
+            <EditText
+                android:id="@+id/itemType"
+                android:layout_width="288dp"
+                android:hint="  Enter item type"
+                android:paddingLeft="10dp"
+                android:layout_height="56dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="1417dp"
+                android:background="@drawable/round_corner"
+                android:ems="10"
+                android:inputType="textPersonName"
+                 />
+
+            <EditText
+                android:id="@+id/returnItem"
+                android:layout_width="288dp"
+                android:hint="  Enter item can return or not"
+                android:paddingLeft="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/round_corner"
+                android:layout_marginTop="1317dp"
+                android:ems="10"
+                android:layout_height="56dp"
+                android:inputType="textPersonName"
+                />
+
+            <EditText
+                android:id="@+id/suitableFor"
+                android:layout_width="277dp"
+                android:layout_height="101dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="27dp"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="640dp"
+                android:background="@drawable/round_corner"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="  Enter item suitability"
+                android:inputType="textMultiLine"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="86dp"
+                android:text="Item Name" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="187dp"
+                android:text="Price" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="305dp"
+                android:text="Description" />
+
+            <Button
+                android:id="@+id/submitItem"
+                android:layout_width="223dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1485dp"
+                android:layout_marginEnd="88dp"
+                android:layout_marginRight="88dp"
+                android:background="@drawable/round_corner"
+                android:text="ADD ITEM"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:backgroundTint="#0E7ED8" />
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </ScrollView>
-
-</RelativeLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/admin_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

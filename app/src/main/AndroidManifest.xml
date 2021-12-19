@@ -30,7 +30,7 @@
         <activity android:name=".AddPharmacist" />
         <activity android:name=".ViewSelectedConatctUs" />
         <activity android:name=".ViewAllContactUs" />
-        <activity android:name=".viewSelectedUserDetails" />
+        <activity android:name=".ViewSelectedUserDetails" />
         <activity android:name=".ViewAllUser" />
         <activity android:name=".UpdateItemDetails" />
         <activity android:name=".ViewSelectedItemDetails" />

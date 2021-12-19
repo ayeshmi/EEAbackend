@@ -4,6 +4,9 @@ import android.content.Context;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -84,11 +90,11 @@ public class ItemAdapter extends BaseAdapter {
 
                         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
                         alertDialog.setTitle("Alert");
-                        alertDialog.setMessage("Are you sure you want to call  ?"  );
+                        alertDialog.setMessage("Are you sure you want to delete this item  ?"  );
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        Log.d("myTag", "Called the function"+listData.get(position).getId());
+
                                         Long id=listData.get(position).getId();
                                         Call<ResponseBody> loginResponseCall = ApiClient.getItemService().deleteItem(id);
                                         loginResponseCall.enqueue(new Callback<ResponseBody>() {
@@ -96,21 +102,21 @@ public class ItemAdapter extends BaseAdapter {
                                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
                                                 if(response.isSuccessful()){
-                                                    Log.d("myTag", "This is my message123");
-                                                    Toast.makeText(context, "User is succesfully deleted.", Toast.LENGTH_SHORT).show();
+
+                                                    Toast.makeText(context, "Item is successfully deleted.", Toast.LENGTH_SHORT).show();
                                                     Intent intent=new Intent(context, ViewAllItems.class);
                                                     context.startActivity(intent);
                                                 }else{
-                                                    Log.d("myTag", "This is my message123dsdsd");
-                                                    Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
+
+                                                    Toast.makeText(context, "An error occurred while deleting the item", Toast.LENGTH_SHORT).show();
 
                                                 }
 
                                             }
                                             @Override
                                             public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                                Toast.makeText(context, "Something went wrong check again.", Toast.LENGTH_SHORT).show();
 
-                                                Log.d("myTag", "This is my messageFail");
                                             }
 
 
@@ -133,6 +139,21 @@ public class ItemAdapter extends BaseAdapter {
                     }
                 }
         );
+
+        String imageURL=listData.get(position).getImageName();
+        Bitmap bimage=null;
+        InputStream in= null;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        try {
+            URL url = new URL("http://192.168.1.3:8080/api/auth/video/"+imageURL);
+            bimage  = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+
+            holder.image.setImageBitmap(bimage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         holder.uName.setText(listData.get(position).getName());
 
         //holder.uLocation.setText(listData.get(position).getBirthday());

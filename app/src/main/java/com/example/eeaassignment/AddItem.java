@@ -3,6 +3,7 @@ package com.example.eeaassignment;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -42,9 +43,9 @@ public class AddItem extends AppCompatActivity {
         String token = "Bearer " + sharedPreferences.getString("token", null);
         String role = sharedPreferences.getString("role", null);
 
-        itemName=(EditText)findViewById(R.id.itemName);
+        itemName=(EditText)findViewById(R.id.name);
         itemType=(EditText)findViewById(R.id.itemType);
-        category=(EditText)findViewById(R.id.category);
+        category=(EditText)findViewById(R.id.specification);
         price=(EditText)findViewById(R.id.price);
         description=(EditText)findViewById(R.id.description);
         suitableFor=(EditText)findViewById(R.id.suitableFor);
@@ -63,13 +64,13 @@ public class AddItem extends AppCompatActivity {
                 if(TextUtils.isEmpty(itemName.getText().toString()) || TextUtils.isEmpty(itemType.getText().toString()) || TextUtils.isEmpty(category.getText().toString())
                         || TextUtils.isEmpty(price.getText().toString()) || TextUtils.isEmpty(description.getText().toString())|| TextUtils.isEmpty(suitableFor.getText().toString())
                         || TextUtils.isEmpty(howToUse.getText().toString()) || TextUtils.isEmpty(ingredients.getText().toString()) || TextUtils.isEmpty(delivery.getText().toString())
-                        || TextUtils.isEmpty(returnItem.getText().toString()) || TextUtils.isEmpty(image.getText().toString())){
+                        || TextUtils.isEmpty(returnItem.getText().toString()) ){
                     Toast.makeText(com.example.eeaassignment.AddItem.this,"All Inputs are Required, Check again.", Toast.LENGTH_LONG).show();
                 }else{
                     //proceed to login
                     addItem(itemName.getText().toString(),itemType.getText().toString(),category.getText().toString(),price.getText().toString(),description.getText().toString(),
-                            suitableFor.getText().toString(), howToUse.getText().toString(),ingredients.getText().toString(),delivery.getText().toString(),returnItem.getText().toString(),
-                            image.getText().toString());
+                            suitableFor.getText().toString(), howToUse.getText().toString(),ingredients.getText().toString(),delivery.getText().toString(),returnItem.getText().toString()
+                            );
                 }
 
             }
@@ -79,8 +80,8 @@ public class AddItem extends AppCompatActivity {
 
     }
 
-    private void addItem(String itemName, String itemType, String category, String price, String description, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem, String image) {
-        ItemDTO item=new ItemDTO(itemName,itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem);
+    private void addItem(String itemName, String itemType, String category, String price, String description, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem) {
+        ItemDTO item=new ItemDTO(itemName,price,description,category,suitableFor,howToUse,ingredients,delivery,returnItem,itemType);
         Call<ResponseBody> loginResponseCall = ApiClient.getItemService().addItem(item);
         loginResponseCall.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -91,7 +92,8 @@ public class AddItem extends AppCompatActivity {
 
                     ResponseBody responseBody = response.body();
                     Toast.makeText(com.example.eeaassignment.AddItem.this,"Item is succesfully added", Toast.LENGTH_LONG).show();
-
+                    Intent intent=new Intent(AddItem.this,ViewAllItems.class);
+                    startActivity(intent);
                 }else{
 
                     Toast.makeText(com.example.eeaassignment.AddItem.this,"Login Failed,Check Username and Password", Toast.LENGTH_LONG).show();

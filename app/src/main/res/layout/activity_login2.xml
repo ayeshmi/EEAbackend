@@ -13,10 +13,11 @@
         android:layout_height="46dp"
         android:backgroundTint="#E4DFDF"
         android:background="@drawable/round_corner"
+        android:paddingLeft="10dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="  Enter your email or username"
-        android:paddingLeft="10dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 

@@ -123,6 +123,7 @@ public class Login2 extends AppCompatActivity {
 
             }
         });
-}}
+}
+}
 
 

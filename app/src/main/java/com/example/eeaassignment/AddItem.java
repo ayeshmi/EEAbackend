@@ -75,9 +75,6 @@ public class AddItem extends AppCompatActivity {
 
             }
         });
-
-        
-
     }
 
     private void addItem(String itemName, String itemType, String category, String price, String description, String suitableFor, String howToUse, String ingredients, String delivery, String returnItem) {

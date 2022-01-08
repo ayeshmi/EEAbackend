@@ -27,6 +27,7 @@ import java.net.URL;
 public class PharmacistHomepage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
     ViewFlipper v_flipper;
+    String role;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class PharmacistHomepage extends AppCompatActivity implements NavigationV
 
         drawer = findViewById(R.id.drawer_layout);
 
-        int images[]={R.drawable.luanchingpage,R.drawable.lunchingimage};
+        int images[]={R.drawable.pharmacy1,R.drawable.pharmacy2,R.drawable.pharmacy3};
         v_flipper=findViewById(R.id.view_flipper);
 
         for(int image:images){
@@ -48,33 +49,21 @@ public class PharmacistHomepage extends AppCompatActivity implements NavigationV
         String username =sharedPreferences.getString("username", null);
         String email = sharedPreferences.getString("email", null);
         String profileImage = sharedPreferences.getString("imageName", null);
+         role=sharedPreferences.getString("role",null);
 
-        View hView =  navigationView.inflateHeaderView(R.layout.nav_header);
-        ImageView imgvw = (ImageView)hView.findViewById(R.id.profile);
-        Bitmap bimage=null;
-        InputStream in= null;
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        try {
-            URL url = new URL("http://192.168.1.3:8080/api/auth/video/"+profileImage);
-            bimage  = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-
-            imgvw.setImageBitmap(bimage);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        TextView emailText = (TextView)hView.findViewById(R.id.email);
-        TextView usernameText = (TextView)hView.findViewById(R.id.username);
-        emailText.setText(email);
-        usernameText.setText(username);
+        NavBarHandler.handleHeaderAndMenu(navigationView,username,email,profileImage, role);
 
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        NavBarHandler.navBarHandler(item,PharmacistHomepage.this);
+        if(role.equals("ROLE_ADMIN")){
+            NavBarHandler.navBarHandler(item,PharmacistHomepage.this);
+        }else if(role.equals("ROLE_PHARMACIST")){
+            NavBarHandler.navBarHandlerPharmacist(item,PharmacistHomepage.this);
+        }else{
+            NavBarHandler.navBarHandlerUser(item,PharmacistHomepage.this);
+        }
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

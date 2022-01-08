@@ -135,7 +135,6 @@ public class ItemAdapter extends BaseAdapter {
                                 });
                         alertDialog.show();
 
-
                     }
                 }
         );

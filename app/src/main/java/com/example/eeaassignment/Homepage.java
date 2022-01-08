@@ -32,7 +32,7 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
         search=(Button)findViewById(R.id.button);
         contactUs=(Button)findViewById(R.id.contactus);
         drawer = findViewById(R.id.drawer_layout);
-        int images[]={R.drawable.luanchingpage,R.drawable.lunchingimage};
+        int images[]={R.drawable.pharmacy1,R.drawable.pharmacy2,R.drawable.pharmacy3};
         v_flipper=findViewById(R.id.view_flipper);
         login.setOnClickListener(new View.OnClickListener() {
             @Override

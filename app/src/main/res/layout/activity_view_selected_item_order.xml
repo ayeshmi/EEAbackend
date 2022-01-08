@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/drawer_layout"
-    android:background="@drawable/update_item_details"
+    android:background="@drawable/item"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
@@ -19,7 +19,7 @@
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="1000dp"
+            android:layout_height="1200dp"
             android:layout_margin="20dp"
             android:orientation="vertical">
 
@@ -43,15 +43,15 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="1335dp"
+                android:layout_marginStart="264dp"
+                android:layout_marginLeft="264dp"
+                android:layout_marginTop="1256dp"
                 android:text="Return" />
 
-            <EditText
+            <TextView
                 android:id="@+id/delivery"
-                android:layout_width="288dp"
-                android:layout_height="wrap_content"
+                android:layout_width="131dp"
+                android:layout_height="34dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
@@ -60,7 +60,9 @@
                 android:layout_marginTop="1279dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Name"
+                android:textColor="#171515"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView23"
@@ -105,9 +107,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="50dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="1423dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="1340dp"
                 android:text="Item Type" />
 
             <TextView
@@ -122,7 +124,7 @@
                 android:layout_marginTop="1252dp"
                 android:text="Delivery" />
 
-            <EditText
+            <TextView
                 android:id="@+id/howToUse"
                 android:layout_width="283dp"
                 android:layout_height="112dp"
@@ -134,23 +136,12 @@
                 android:layout_marginTop="981dp"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:textColor="#121111"
+                android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/description"
-                android:layout_width="283dp"
-                android:layout_height="112dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="47dp"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="521dp"
-                android:ems="10"
-                android:gravity="start|top"
-                android:inputType="textMultiLine" />
 
-            <EditText
+            <TextView
                 android:id="@+id/ingredients"
                 android:layout_width="283dp"
                 android:layout_height="112dp"
@@ -162,9 +153,11 @@
                 android:layout_marginTop="1130dp"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:textColor="#121111"
+                android:textSize="18sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/specification"
                 android:layout_width="283dp"
                 android:layout_height="112dp"
@@ -176,98 +169,60 @@
                 android:layout_marginTop="672dp"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:textColor="#131212"
+                android:textColorHint="#FFFFFF"
+                android:textSize="18sp" />
 
             <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="180dp"
-                android:layout_height="148dp"
+                android:id="@+id/image"
+                android:layout_width="179dp"
+                android:layout_height="123dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="51dp"
-                android:layout_marginEnd="98dp"
-                android:layout_marginRight="98dp"
+                android:layout_marginStart="84dp"
+                android:layout_marginLeft="84dp"
+                android:layout_marginTop="76dp"
+                android:layout_marginEnd="108dp"
+                android:layout_marginRight="108dp"
                 app:srcCompat="@drawable/eyecare" />
 
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="296dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="47dp"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="274dp"
-                android:layout_marginEnd="28dp"
-                android:layout_marginRight="28dp"
-                android:ems="10"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:inputType="textPersonName"
-                android:text="Name" />
 
-            <EditText
-                android:id="@+id/availbilty"
-                android:layout_width="294dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="47dp"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="352dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
-
-            <EditText
-                android:id="@+id/price"
-                android:layout_width="288dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="47dp"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="441dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
-
-            <EditText
+            <TextView
                 android:id="@+id/itemType"
                 android:layout_width="288dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="47dp"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="1451dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginLeft="42dp"
+                android:layout_marginTop="1366dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Name"
+                android:textSize="18sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/returnItem"
-                android:layout_width="288dp"
-                android:layout_height="wrap_content"
+                android:layout_width="96dp"
+                android:layout_height="36dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="47dp"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="1362dp"
+                android:layout_marginStart="261dp"
+                android:layout_marginLeft="261dp"
+                android:layout_marginTop="1280dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Name"
+                android:textColor="#151414"
+                android:textSize="18sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/suitableFor"
                 android:layout_width="283dp"
                 android:layout_height="112dp"
@@ -279,19 +234,9 @@
                 android:layout_marginTop="822dp"
                 android:ems="10"
                 android:gravity="start|top"
-                android:inputType="textMultiLine" />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="25dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="247dp"
-                android:text="Item Name" />
+                android:inputType="textMultiLine"
+                android:textColor="#0C0B0B"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView17"
@@ -307,17 +252,23 @@
 
             <EditText
                 android:id="@+id/cartItem"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
+                android:layout_width="92dp"
+                android:layout_height="41dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_marginStart="56dp"
+                android:text="0"
+                android:layout_marginLeft="56dp"
                 android:layout_marginTop="212dp"
-                android:layout_marginEnd="199dp"
-                android:layout_marginRight="199dp"
+                android:layout_marginEnd="223dp"
+                android:layout_marginRight="223dp"
+                android:background="@drawable/round_corner"
                 android:ems="10"
+                android:paddingLeft="35dp"
                 android:inputType="textPersonName"
-                android:text="Name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -329,15 +280,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
-
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginStart="200dp"
-                android:layout_marginLeft="200dp"
+                android:layout_marginStart="183dp"
+                android:layout_marginLeft="183dp"
                 android:layout_marginTop="212dp"
-                android:layout_marginEnd="29dp"
-                android:layout_marginRight="29dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginRight="9dp"
                 android:background="@drawable/round_corner"
                 android:text="Add To Cart"
                 app:backgroundTint="#0E7ED8" />
@@ -352,7 +302,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginTop="416dp"
-                android:text="Price" />
+                android:text="Price (Rs.)" />
 
             <TextView
                 android:id="@+id/textView19"
@@ -365,6 +315,125 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="492dp"
                 android:text="Description" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="57dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="43dp"
+                android:layout_marginLeft="43dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginRight="55dp"
+                android:text="TextView"
+                android:textColor="#1B1919"
+                android:textColorHint="#0C0C0C"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/pluse"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginLeft="21dp"
+                android:layout_marginTop="212dp"
+                android:layout_marginEnd="305dp"
+                android:layout_marginRight="305dp"
+                android:background="@drawable/round_corner"
+                app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
+
+            <ImageButton
+                android:id="@+id/minius"
+                android:layout_width="51dp"
+                android:layout_height="41dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="135dp"
+                android:layout_marginLeft="135dp"
+                android:layout_marginTop="211dp"
+                android:layout_marginEnd="185dp"
+                android:layout_marginRight="185dp"
+                android:background="@drawable/round_corner"
+                app:srcCompat="@drawable/ic_baseline_remove_circle_outline_24" />
+
+            <Button
+                android:id="@+id/share"
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="124dp"
+                android:layout_marginLeft="124dp"
+                android:layout_marginTop="266dp"
+                android:layout_marginEnd="124dp"
+                android:layout_marginRight="124dp"
+                android:text="SHARE"
+                app:backgroundTint="#3F51B5" />
+
+            <TextView
+                android:id="@+id/availbilty"
+                android:layout_width="299dp"
+                android:layout_height="39dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="47dp"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="352dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="TextView"
+                android:textColor="#100F0F"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="283dp"
+                android:layout_height="43dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="47dp"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="441dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="TextView"
+                android:textColor="#151313"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="287dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="47dp"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="521dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:text="TextView"
+                android:textColor="#151414"
+                android:textSize="18sp" />
 
 
         </RelativeLayout>

@@ -5,17 +5,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.eeaassignment.model.Item;
 import com.example.eeaassignment.model.Order;
 import com.example.eeaassignment.service.ApiClient;
 import com.example.eeaassignment.util.AuthenticationHandler;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -28,7 +38,11 @@ public class ViewSelectedItemOrder extends AppCompatActivity {
     private String itemId;
     private long id;
     private Item viewItem;
-    EditText itemName, itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem,image,availability;
+    private TextView itemName;
+    private ImageView image;
+    private ImageButton pluse,minius;
+    private Button share;
+    TextView  itemType,category,price,description,suitableFor,howToUse,ingredients,delivery,returnItem,availability;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,18 +68,21 @@ public class ViewSelectedItemOrder extends AppCompatActivity {
         itemId=intent.getStringExtra("itemId");
         id=Long.parseLong(itemId);
 
-        itemName=(EditText)findViewById(R.id.name);
-        itemType=(EditText)findViewById(R.id.itemType);
-        category=(EditText)findViewById(R.id.specification);
-        price=(EditText)findViewById(R.id.price);
-        description=(EditText)findViewById(R.id.description);
-        suitableFor=(EditText)findViewById(R.id.suitableFor);
-        howToUse=(EditText)findViewById(R.id.howToUse);
-        ingredients=(EditText)findViewById(R.id.ingredients);
-        delivery=(EditText)findViewById(R.id.delivery);
-        returnItem=(EditText)findViewById(R.id.returnItem);
-
-        availability=(EditText)findViewById(R.id.availbilty);
+        itemName=(TextView)findViewById(R.id.name);
+        itemType=(TextView)findViewById(R.id.itemType);
+        category=(TextView)findViewById(R.id.specification);
+        price=(TextView)findViewById(R.id.price);
+        description=(TextView)findViewById(R.id.description);
+        suitableFor=(TextView)findViewById(R.id.suitableFor);
+        howToUse=(TextView)findViewById(R.id.howToUse);
+        ingredients=(TextView)findViewById(R.id.ingredients);
+        delivery=(TextView)findViewById(R.id.delivery);
+        returnItem=(TextView)findViewById(R.id.returnItem);
+        image=(ImageView)findViewById(R.id.image);
+        pluse=(ImageButton) findViewById(R.id.pluse);
+        minius=(ImageButton)findViewById(R.id.minius);
+        share=(Button)findViewById(R.id.share);
+        availability=(TextView)findViewById(R.id.availbilty);
 
         Call<Item> getItem = ApiClient.getItemService().getSelectedItemDetails(id);
         getItem .enqueue(new Callback<Item>() {
@@ -86,7 +103,19 @@ public class ViewSelectedItemOrder extends AppCompatActivity {
                     delivery.setText(viewItem.getDelivery());
                     returnItem.setText(viewItem.getReturnItem());
                     availability.setText(viewItem.getAvailability());
+                    Bitmap bimage=null;
+                    InputStream in= null;
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+                    try {
+                        URL url = new URL("http://192.168.1.3:8080/api/auth/video/"+viewItem.getImageName());
+                        bimage  = BitmapFactory.decodeStream(url.openConnection().getInputStream());
 
+                        image.setImageBitmap(bimage);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
                 }
                 else{
@@ -134,6 +163,48 @@ public class ViewSelectedItemOrder extends AppCompatActivity {
                     }
                 });
 
+            }
+        });
+
+        pluse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int total=Integer.valueOf (cart.getText().toString());
+                int total12=total+1;
+                cart.setText(""+total12);
+            }
+        });
+        minius.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int total=Integer.valueOf (cart.getText().toString());
+                if(total==0){
+                    cart.setText("" +0);
+                }
+                else {
+                    int total12=total-1;
+                    cart.setText(""+total12);
+                }
+
+            }
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(Intent.ACTION_SEND);
+                myIntent.setType("text/plain");
+                String price = viewItem.getPrice();
+                String description=viewItem.getDescription();
+                String howToUse=viewItem.getHowToUse();
+                String category=viewItem.getSpecifications();
+
+                String sub = viewItem.getName();
+                myIntent.putExtra(Intent.EXTRA_SUBJECT,sub);
+                myIntent.putExtra(Intent.EXTRA_TEXT,"Price :"+price+", Item Category :"+category+", Item Description :"+description+", How To Use :"+howToUse);
+
+                startActivity(Intent.createChooser(myIntent, "Share Using"));
             }
         });
     }

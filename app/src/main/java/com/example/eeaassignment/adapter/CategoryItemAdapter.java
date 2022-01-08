@@ -54,6 +54,8 @@ public class CategoryItemAdapter extends BaseAdapter {
             holder.uDesignation = (TextView) v.findViewById(R.id.designation);
             holder.image=(ImageView) v.findViewById(R.id.img);
             holder.cardView=(CardView) v.findViewById(R.id.card);
+            holder.itemType=(TextView) v.findViewById(R.id.itemType);
+            holder.availability=(TextView) v.findViewById(R.id.availability);
             // holder.uLocation = (TextView) v.findViewById(R.id.location);
             v.setTag(holder);
         } else {
@@ -90,8 +92,9 @@ public class CategoryItemAdapter extends BaseAdapter {
         }
 
         holder.uName.setText(listData.get(position).getName());
-        holder.uDesignation.setText(listData.get(position).getName());
-        //holder.uLocation.setText(listData.get(position).getBirthday());
+        holder.uDesignation.setText(listData.get(position).getPrice());
+        holder.itemType.setText(listData.get(position).getItemType());
+        holder.availability.setText(listData.get(position).getAvailability());
         return v;
     }
     static class ViewHolder {
@@ -100,6 +103,8 @@ public class CategoryItemAdapter extends BaseAdapter {
         TextView uLocation;
         ImageView image;
         CardView cardView;
+        TextView itemType;
+        TextView availability;
 
     }
 

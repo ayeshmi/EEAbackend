@@ -1,6 +1,7 @@
 package com.example.eeaassignment.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+
+import com.example.eeaassignment.ViewAllItems;
 import com.example.eeaassignment.service.ApiClient;
 import com.example.eeaassignment.dto.ContactUsRequest;
 import com.example.eeaassignment.R;
@@ -74,33 +78,53 @@ public class ContactUsAdapter extends BaseAdapter {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Log.d("myTag", "Called the function"+listData.get(position).getId());
-                        Long id=listData.get(position).getId();
-                        Call<ResponseBody> loginResponseCall = ApiClient.getContactUsService().deleteContectUs(id);
-                        loginResponseCall.enqueue(new Callback<ResponseBody>() {
-                            @Override
-                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
-                                if(response.isSuccessful()){
-                                    Log.d("myTag", "This is my message123");
-                                    Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
+                        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+                        alertDialog.setTitle("Alert");
+                        alertDialog.setMessage("Are you sure you want to delete this contact us detail  ?"  );
+                        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
 
-                                }else{
-                                    Log.d("myTag", "This is my message123dsdsd");
-                                    Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
+                                        Long id=listData.get(position).getId();
+                                        Call<ResponseBody> loginResponseCall = ApiClient.getContactUsService().deleteContectUs(id);
+                                        loginResponseCall.enqueue(new Callback<ResponseBody>() {
+                                            @Override
+                                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
-                                }
+                                                if(response.isSuccessful()){
 
-                            }
-                            @Override
-                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                                    Toast.makeText(context, "Contact Detail is successfully deleted.", Toast.LENGTH_SHORT).show();
+                                                    Intent intent=new Intent(context, ViewAllItems.class);
+                                                    context.startActivity(intent);
+                                                }else{
 
-                                Log.d("myTag", "This is my messageFail");
-                            }
+                                                    Toast.makeText(context, "An error occurred while deleting the contact detail.", Toast.LENGTH_SHORT).show();
+
+                                                }
+
+                                            }
+                                            @Override
+                                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                                                Toast.makeText(context, "An error occurred while deleting the item.", Toast.LENGTH_SHORT).show();
+
+                                            }
 
 
-                        });
-                        // Toast.makeText(holder.this,"Username / Password Required", Toast.LENGTH_LONG).show();
+                                        });
+
+                                    }
+                                });
+                        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+
+
                         Log.d("myTag", "Item is deleted");
                     }
                 }

@@ -89,11 +89,11 @@ public class PharmacistAdapter extends BaseAdapter {
 
                         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
                         alertDialog.setTitle("Alert");
-                        alertDialog.setMessage("Are you sure you want to call  ?"  );
+                        alertDialog.setMessage("Do you want t delete this pharmacist ?"  );
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        Log.d("myTag", "Called the function"+listData.get(position).getId());
+
                                         Long id=listData.get(position).getId();
                                         Call<ResponseBody> loginResponseCall = ApiClient.getPharmacistService().deletePharmacist(id);
                                         loginResponseCall.enqueue(new Callback<ResponseBody>() {
@@ -102,12 +102,12 @@ public class PharmacistAdapter extends BaseAdapter {
 
                                                 if(response.isSuccessful()){
                                                     Log.d("myTag", "This is my message123");
-                                                    Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(context, "Pharmacist is successfully deleted.", Toast.LENGTH_SHORT).show();
                                                     Intent intent=new Intent(context, ViewAllPharmacists.class);
                                                     context.startActivity(intent);
                                                 }else{
                                                     Log.d("myTag", "This is my message123dsdsd");
-                                                    Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(context, "An error occurred while deleting the pharmacist.", Toast.LENGTH_SHORT).show();
 
                                                 }
 
@@ -115,7 +115,7 @@ public class PharmacistAdapter extends BaseAdapter {
                                             @Override
                                             public void onFailure(Call<ResponseBody> call, Throwable t) {
 
-                                                Log.d("myTag", "This is my messageFail");
+                                                Toast.makeText(context, "An error occurred while deleting the pharmacist.", Toast.LENGTH_SHORT).show();
                                             }
 
 

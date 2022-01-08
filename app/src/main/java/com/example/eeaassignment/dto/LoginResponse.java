@@ -10,6 +10,7 @@ public class LoginResponse {
     private List<String> roles;
     private String tokenType;
     private String accessToken;
+    private String imageName;
 
     public Long getId() {
         return id;
@@ -43,6 +44,13 @@ public class LoginResponse {
         this.username = username;
     }
 
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
 
     public String getTokenType() {
         return tokenType;

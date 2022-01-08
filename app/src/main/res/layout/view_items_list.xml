@@ -18,7 +18,8 @@
         app:cardUseCompatPadding="true">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#A7D5EA">
 
             <ImageView
                 android:id="@+id/img"

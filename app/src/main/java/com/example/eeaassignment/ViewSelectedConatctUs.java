@@ -44,17 +44,17 @@ public class ViewSelectedConatctUs extends AppCompatActivity implements Navigati
         setContentView(R.layout.activity_view_selected_conatct_us);
         drawer = findViewById(R.id.drawer_layout);
 
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        Intent intent = getIntent();
+        conatctId = intent.getStringExtra("itemId");
         id = Long.parseLong(conatctId);
+
         name = (EditText) findViewById(R.id.name);
         email = (EditText) findViewById(R.id.email);
         message = (EditText) findViewById(R.id.message);
         answer = (EditText) findViewById(R.id.answer);
         submit = (Button) findViewById(R.id.submit);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        Intent intent = getIntent();
-        conatctId = intent.getStringExtra("itemId");
 
         Call<ContactUsRequest> getItem = ApiClient.getContactUsService().getSelectedContactDetails(id);
         getItem .enqueue(new Callback<ContactUsRequest>() {

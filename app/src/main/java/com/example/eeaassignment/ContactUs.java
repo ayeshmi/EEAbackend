@@ -68,9 +68,6 @@ public class ContactUs extends AppCompatActivity {
 
     public void contactUs(Long uid){
         ContactUsRequest contactUsRequest = new ContactUsRequest(name.getText().toString(),email.getText().toString(),message.getText().toString());
-        // loginRequest.setUsername(username.getText().toString());
-        // loginRequest.setPassword(password.getText().toString());
-
 
         Call<RegisterResponse> registerResponseCall = ApiClient.getContactUsService().contactUs(contactUsRequest,uid);
         registerResponseCall.enqueue(new Callback<RegisterResponse>() {

@@ -39,4 +39,7 @@ public interface OrderService {
 
     @GET("viewCancelOrdersRA/{id}")
     Call<List<Order>> viewCancelOrders(@Path(value = "id", encoded = true) Long id);
+
+    @GET("addPaymentRA/{price}/{deliveryFee}/{totalFee}/{email}")
+    Call<ResponseBody> orderConfirmation(@Path(value = "price", encoded = true) int price,@Path(value = "deliveryFee", encoded = true) int deliveryFee,@Path(value = "totalFee", encoded = true) int totalFee,@Path(value = "email", encoded = true) String email);
 }

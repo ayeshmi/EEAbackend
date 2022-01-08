@@ -54,6 +54,7 @@ public class OrderAdapter extends BaseAdapter {
             holder = new OrderAdapter.ViewHolder();
             holder.uName = (TextView) v.findViewById(R.id.name);
             holder.uDesignation = (TextView) v.findViewById(R.id.designation);
+            holder.status=(TextView)v.findViewById(R.id.status);
             holder.complete=(Button)v.findViewById(R.id.complete);
             holder.delete=(Button)v.findViewById(R.id.delete);
             holder.cardView= (CardView)v.findViewById(R.id.card);
@@ -148,13 +149,13 @@ public class OrderAdapter extends BaseAdapter {
 
         holder.uName.setText(listData.get(position).getName());
         holder.uDesignation.setText(listData.get(position).getTotalPrice());
-        //holder.uLocation.setText(listData.get(position).getBirthday());
+        holder.status.setText(listData.get(position).getStatus());
         return v;
     }
     static class ViewHolder {
         TextView uName;
         TextView uDesignation;
-        TextView uLocation;
+        TextView status;
         Button complete;
         Button delete;
         CardView cardView;

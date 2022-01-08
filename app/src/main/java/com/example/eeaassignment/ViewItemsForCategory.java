@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.eeaassignment.adapter.CategoryItemAdapter;
 import com.example.eeaassignment.model.Item;
 import com.example.eeaassignment.service.ApiClient;
 

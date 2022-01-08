@@ -6,12 +6,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.eeaassignment.adapter.CartAdapter;
@@ -29,30 +34,37 @@ import retrofit2.Response;
 public class ViewCart extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
     private List<Order> order;
+    private Button cart;
+    private TextView totalPriceText;
+    int totalPriceOfItem=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_cart);
         drawer = findViewById(R.id.drawer_layout);
-
+        cart=findViewById(R.id.cart);
+        totalPriceText=findViewById(R.id.itemTotalPrice);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         SharedPreferences sharedPreferences = getSharedPreferences("auth_details", Context.MODE_PRIVATE);
 
-        String token = "Bearer " + sharedPreferences.getString("token", null);
-        String role = sharedPreferences.getString("role", null);
-        String email= sharedPreferences.getString("email", null);
         String userID= sharedPreferences.getString("id", null);
         Long uid=Long.parseLong(userID);
 
         Call<List<Order>> getAllCartCall = ApiClient.getOrderService().viewCartDetailsByUser(uid);
+
         getAllCartCall.enqueue(new Callback<List<Order>>() {
             @Override
             public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
 
                 order = response.body();
 
+                for(int i=0;i<order.size();i++){
+                    totalPriceOfItem=totalPriceOfItem+Integer.parseInt(order.get(i).getTotalPrice());
+                }
+                totalPriceText.setText(""+totalPriceOfItem);
+                Log.d("myTag", "This is my messageCart call"+order.size());
                 if(order != null){
                     final ListView lv = (ListView) findViewById(R.id.cart_list);
 
@@ -77,9 +89,16 @@ public class ViewCart extends AppCompatActivity implements NavigationView.OnNavi
             @Override
             public void onFailure(Call<List<Order>> call, Throwable t) {
 
-                Toast.makeText(ViewCart.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewCart.this, "Something went wrong12!", Toast.LENGTH_SHORT).show();
                 //progressDialog.dismiss();
 
+            }
+        });
+
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(com.example.eeaassignment.ViewCart.this, ConfirmOrder.class).putExtra("data",totalPriceOfItem));
             }
         });
     }

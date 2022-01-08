@@ -49,9 +49,11 @@ public class ViewSelctedPharmacist extends AppCompatActivity implements Navigati
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         Intent intent=getIntent();
         conatctId=intent.getStringExtra("itemId");
         id=Long.parseLong(conatctId);
+
         name=(EditText)findViewById(R.id.name);
         email=(EditText)findViewById(R.id.email);
         message=(EditText)findViewById(R.id.message);

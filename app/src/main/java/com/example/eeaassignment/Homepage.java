@@ -57,9 +57,6 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
             flipperImage(image);
 
         }
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

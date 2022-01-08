@@ -2,12 +2,17 @@ package com.example.eeaassignment.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +24,9 @@ import com.example.eeaassignment.R;
 import com.example.eeaassignment.ViewCart;
 import com.example.eeaassignment.ViewSelectedItemOrder;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -48,19 +56,20 @@ public class CartAdapter extends BaseAdapter {
         return position;
     }
     public View getView(int position, View v, ViewGroup vg) {
-        OrderAdapter.ViewHolder holder;
+        CartAdapter.ViewHolder holder;
         if (v == null) {
             v = layoutInflater.inflate(R.layout.cart_details, null);
-            holder = new OrderAdapter.ViewHolder();
+            holder = new CartAdapter.ViewHolder();
             holder.uName = (TextView) v.findViewById(R.id.name);
-            holder.uDesignation = (TextView) v.findViewById(R.id.designation);
+            holder.uDesignation = (TextView) v.findViewById(R.id.totaPrice);
+            holder.img=(ImageView) v.findViewById(R.id.img);
 
             holder.delete=(Button)v.findViewById(R.id.delete);
             holder.cardView= (CardView)v.findViewById(R.id.card);
             // holder.uLocation = (TextView) v.findViewById(R.id.location);
             v.setTag(holder);
         } else {
-            holder = (OrderAdapter.ViewHolder) v.getTag();
+            holder = (CartAdapter.ViewHolder) v.getTag();
 
         }
 
@@ -81,7 +90,6 @@ public class CartAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View view) {
 
-                        Log.d("myTag", "Called the function"+listData.get(position).getId());
                         Long id=listData.get(position).getId();
                         Call<ResponseBody> loginResponseCall = ApiClient.getOrderService().cancelOrder(id);
                         loginResponseCall.enqueue(new Callback<ResponseBody>() {
@@ -89,12 +97,12 @@ public class CartAdapter extends BaseAdapter {
                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
                                 if(response.isSuccessful()){
-                                    Log.d("myTag", "This is my message123");
+
                                     Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
                                     Intent intent=new Intent(context, ViewCart.class);
                                     context.startActivity(intent);
                                 }else{
-                                    Log.d("myTag", "This is my message123dsdsd");
+
                                     Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
                                 }
 
@@ -112,8 +120,20 @@ public class CartAdapter extends BaseAdapter {
         );
 
         holder.uName.setText(listData.get(position).getName());
-        holder.uDesignation.setText(listData.get(position).getTotalPrice());
-        //holder.uLocation.setText(listData.get(position).getBirthday());
+        holder.uDesignation.setText(listData.get(position).getTotalPrice()+".00");
+        Bitmap bimage=null;
+        InputStream in= null;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        try {
+            URL url = new URL("http://192.168.1.3:8080/api/auth/video/"+listData.get(position).getImageName());
+            bimage  = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+
+            holder.img.setImageBitmap(bimage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return v;
     }
     static class ViewHolder {
@@ -123,6 +143,7 @@ public class CartAdapter extends BaseAdapter {
         Button view;
         Button delete;
         CardView cardView;
+        ImageView img;
 
     }
 

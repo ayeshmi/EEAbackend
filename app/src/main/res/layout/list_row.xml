@@ -18,7 +18,8 @@
         app:cardUseCompatPadding="true">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#A7D5EA">
 
     <ImageView
         android:id="@+id/img"
@@ -49,7 +50,6 @@
         android:textStyle="bold" />
 
 
-
     <Button
         android:id="@+id/view"
         android:layout_width="138dp"
@@ -69,7 +69,7 @@
         android:layout_marginRight="190dp"
         android:layout_marginBottom="67dp"
         android:text="VIEW"
-        app:backgroundTint="@color/colorPrimary" />
+        app:backgroundTint="#3F51B5" />
 
     <Button
         android:id="@+id/delete"

@@ -1,4 +1,4 @@
-package com.example.eeaassignment;
+package com.example.eeaassignment.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
+import com.example.eeaassignment.R;
+import com.example.eeaassignment.ViewSelectedItemOrder;
 import com.example.eeaassignment.model.Item;
 
 import java.io.IOException;
@@ -44,10 +46,10 @@ public class CategoryItemAdapter extends BaseAdapter {
         return position;
     }
     public View getView(int position, View v, ViewGroup vg) {
-        CategoryItemAdapter.ViewHolder holder;
+        ViewHolder holder;
         if (v == null) {
             v = layoutInflater.inflate(R.layout.view_category_item, null);
-            holder = new CategoryItemAdapter.ViewHolder();
+            holder = new ViewHolder();
             holder.uName = (TextView) v.findViewById(R.id.name);
             holder.uDesignation = (TextView) v.findViewById(R.id.designation);
             holder.image=(ImageView) v.findViewById(R.id.img);
@@ -55,7 +57,7 @@ public class CategoryItemAdapter extends BaseAdapter {
             // holder.uLocation = (TextView) v.findViewById(R.id.location);
             v.setTag(holder);
         } else {
-            holder = (CategoryItemAdapter.ViewHolder) v.getTag();
+            holder = (ViewHolder) v.getTag();
 
         }
 
@@ -102,7 +104,7 @@ public class CategoryItemAdapter extends BaseAdapter {
     }
 
     private void viewSelectedItemDetails(Context context,String id) {
-        Intent intent=new Intent(context,ViewSelectedItemOrder.class);
+        Intent intent=new Intent(context, ViewSelectedItemOrder.class);
         intent.putExtra("itemId", id);
         context.startActivity(intent);
     }

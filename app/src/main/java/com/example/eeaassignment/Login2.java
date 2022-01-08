@@ -67,9 +67,6 @@ public class Login2 extends AppCompatActivity {
 
     public void login(){
         LoginRequest loginRequest = new LoginRequest(password.getText().toString(),username.getText().toString());
-        // loginRequest.setUsername(username.getText().toString());
-        // loginRequest.setPassword(password.getText().toString());
-
 
         Call<LoginResponse> loginResponseCall = ApiClient.getUserService().userLogin(loginRequest);
         loginResponseCall.enqueue(new Callback<LoginResponse>() {
@@ -87,6 +84,7 @@ public class Login2 extends AppCompatActivity {
                     editor.putString("username", response.body().getUsername());
                     editor.putString("id", response.body().getId().toString());
                     editor.putString("role", response.body().getRoles().get(0));
+                    editor.putString("imageName",response.body().getImageName());
                     editor.apply();
 
                     new Handler().postDelayed(new Runnable() {

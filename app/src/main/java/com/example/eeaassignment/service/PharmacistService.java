@@ -1,6 +1,7 @@
 package com.example.eeaassignment.service;
 
 import com.example.eeaassignment.model.Pharmacist;
+import com.example.eeaassignment.model.User;
 
 import java.util.List;
 
@@ -22,5 +23,6 @@ public interface PharmacistService {
     Call<ResponseBody> deletePharmacist(@Path(value = "Id", encoded = true) Long id);
     @GET("viewPharmacientByItemRA/{id}")
     Call<Pharmacist> getSelectedPharmacistDetails(@Path(value = "id", encoded = true) Long id);
-
+    @GET("advancePharmacistSearchAPI/{search}")
+    Call<List<Pharmacist>> advancePharmacistSearch(@Path(value = "search", encoded = true) String search);
 }

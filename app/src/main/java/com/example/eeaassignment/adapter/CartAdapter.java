@@ -91,19 +91,19 @@ public class CartAdapter extends BaseAdapter {
                     public void onClick(View view) {
 
                         Long id=listData.get(position).getId();
-                        Call<ResponseBody> loginResponseCall = ApiClient.getOrderService().cancelOrder(id);
+                        Call<ResponseBody> loginResponseCall = ApiClient.getOrderService().deleteItemFromCart(id);
                         loginResponseCall.enqueue(new Callback<ResponseBody>() {
                             @Override
                             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
                                 if(response.isSuccessful()){
 
-                                    Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Item is successfully deleted from the cart.", Toast.LENGTH_SHORT).show();
                                     Intent intent=new Intent(context, ViewCart.class);
                                     context.startActivity(intent);
                                 }else{
 
-                                    Toast.makeText(context, "An error occurred while deleting the lecture", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Item details are not existing, try again.", Toast.LENGTH_SHORT).show();
                                 }
 
                             }

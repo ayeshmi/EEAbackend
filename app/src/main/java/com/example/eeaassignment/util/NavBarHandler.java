@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.eeaassignment.AdminHomePage;
+import com.example.eeaassignment.PRoviders;
 import com.example.eeaassignment.PharmacistHomepage;
 import com.example.eeaassignment.ViewCancelOrders;
 import com.example.eeaassignment.ViewCart;
@@ -132,6 +133,13 @@ public class NavBarHandler {
                 Intent intent8 = new Intent(context, ViewProfileDetails.class);
                 intent8.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent8);
+                break;
+
+            case R.id.add_employee:
+
+                Intent intent9 = new Intent(context, PRoviders.class);
+                intent9.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent9);
                 break;
 
             case R.id.logout:

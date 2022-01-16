@@ -36,7 +36,7 @@ public class BranchesDetails extends AppCompatActivity {
         call1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "http://maps.google.co.in/maps?q="+"Veyangoda";
+                String url = "http://maps.google.co.in/maps?q="+"228, Havelock Rd, Colombo 05";
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW,  Uri.parse(url));
                 startActivity(intent);
             }
@@ -44,19 +44,13 @@ public class BranchesDetails extends AppCompatActivity {
         share1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(Intent.ACTION_SEND);
-                myIntent.setType("text/plain");
-                String body = "Your body here";
-                String sub = "Your Subject";
-                myIntent.putExtra(Intent.EXTRA_SUBJECT,sub);
-                myIntent.putExtra(Intent.EXTRA_TEXT,body);
-                startActivity(Intent.createChooser(myIntent, "Share Using"));
+                makePhoneCall("0112556143");
             }
         });
         call2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "http://maps.google.co.in/maps?q="+"Veyangoda";
+                String url = "http://maps.google.co.in/maps?q="+" No:42D, Hospital Rd, Angoda";
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW,  Uri.parse(url));
                 startActivity(intent);
             }
@@ -64,19 +58,13 @@ public class BranchesDetails extends AppCompatActivity {
         share2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(Intent.ACTION_SEND);
-                myIntent.setType("text/plain");
-                String body = "Your body here";
-                String sub = "Your Subject";
-                myIntent.putExtra(Intent.EXTRA_SUBJECT,sub);
-                myIntent.putExtra(Intent.EXTRA_TEXT,body);
-                startActivity(Intent.createChooser(myIntent, "Share Using"));
+                makePhoneCall("0112567237");
             }
         });
         call3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "http://maps.google.co.in/maps?q="+"Veyangoda";
+                String url = "http://maps.google.co.in/maps?q="+"375/10 A High level Road, Makumbura";
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW,  Uri.parse(url));
                 startActivity(intent);
             }
@@ -84,19 +72,13 @@ public class BranchesDetails extends AppCompatActivity {
         share3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(Intent.ACTION_SEND);
-                myIntent.setType("text/plain");
-                String body = "Your body here";
-                String sub = "Your Subject";
-                myIntent.putExtra(Intent.EXTRA_SUBJECT,sub);
-                myIntent.putExtra(Intent.EXTRA_TEXT,body);
-                startActivity(Intent.createChooser(myIntent, "Share Using"));
+                makePhoneCall("0112098105");
             }
         });
     }
 
-    private void makePhoneCall() {
-        String number ="0716696758";
+    private void makePhoneCall(String number) {
+
         if (number.trim().length() > 0) {
 
             if (ContextCompat.checkSelfPermission(BranchesDetails.this,
@@ -117,7 +99,8 @@ public class BranchesDetails extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_CALL) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                makePhoneCall();
+                makePhoneCall("0112245798");
+
             } else {
                 Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
             }

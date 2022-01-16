@@ -5,6 +5,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:id="@+id/drawer_layout"
+    android:background="@drawable/userhome1"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -40,7 +41,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#C303192B">
 
                     <TextView
                         android:id="@+id/textView11"
@@ -77,6 +79,78 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="359dp"
+                android:layout_height="173dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="338dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginRight="26dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="12dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="344dp"
+                    android:layout_height="127dp"
+                    android:background="@color/colorWhite">
+
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="118dp"
+                        android:layout_height="112dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="9dp"
+                        app:srcCompat="@drawable/delivery" />
+
+                    <TextView
+                        android:id="@+id/textView44"
+                        android:layout_width="115dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginEnd="56dp"
+                        android:layout_marginRight="56dp"
+                        android:layout_marginBottom="75dp"
+                        android:text="Delivery"
+                        android:textColor="#4056CD"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView46"
+                        android:layout_width="112dp"
+                        android:layout_height="49dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="174dp"
+                        android:layout_marginLeft="174dp"
+                        android:layout_marginEnd="58dp"
+                        android:layout_marginRight="58dp"
+                        android:layout_marginBottom="28dp"
+                        android:text="Available"
+                        android:textColor="#4056CD"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
             <GridLayout
                 android:id="@+id/mainGrid"
                 android:layout_width="match_parent"
@@ -84,9 +158,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="-6dp"
-                android:layout_marginRight="-6dp"
-                android:layout_marginBottom="304dp"
+                android:layout_marginEnd="-13dp"
+                android:layout_marginRight="-13dp"
+                android:layout_marginBottom="505dp"
                 android:layout_weight="8"
                 android:alignmentMode="alignMargins"
                 android:columnCount="2"
@@ -107,7 +181,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="#CABCBC"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -129,7 +203,7 @@
                             android:layout_height="wrap_content"
                             android:text="Woman Health"
                             android:textAlignment="center"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/black"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -148,7 +222,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -191,7 +265,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -231,7 +305,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -274,7 +348,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -314,7 +388,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -352,7 +426,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -391,7 +465,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -430,7 +504,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -469,7 +543,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -508,7 +582,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -547,7 +621,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -586,7 +660,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
@@ -625,7 +699,7 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#8CAEC8"
+                    app:cardBackgroundColor="#82BEED"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 

@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:id="@+id/drawer_layout"
-    android:background="@drawable/orderdetails"
+    android:background="@drawable/order12"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout

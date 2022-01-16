@@ -2,12 +2,16 @@ package com.example.eeaassignment.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +23,9 @@ import com.example.eeaassignment.R;
 import com.example.eeaassignment.ViewOrderDetails;
 import com.example.eeaassignment.ViewSelectedItemOrder;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -58,6 +65,7 @@ public class OrderAdapter extends BaseAdapter {
             holder.complete=(Button)v.findViewById(R.id.complete);
             holder.delete=(Button)v.findViewById(R.id.delete);
             holder.cardView= (CardView)v.findViewById(R.id.card);
+            holder.image= (ImageView) v.findViewById(R.id.img);
             // holder.uLocation = (TextView) v.findViewById(R.id.location);
             v.setTag(holder);
         } else {
@@ -146,7 +154,20 @@ public class OrderAdapter extends BaseAdapter {
                     }
                 }
         );
+        String imageURL=listData.get(position).getImageName();
+        Bitmap bimage=null;
+        InputStream in= null;
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        try {
+            URL url = new URL("http://192.168.1.3:8080/api/auth/video/"+imageURL);
+            bimage  = BitmapFactory.decodeStream(url.openConnection().getInputStream());
 
+            holder.image.setImageBitmap(bimage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         holder.uName.setText(listData.get(position).getName());
         holder.uDesignation.setText(listData.get(position).getTotalPrice());
         holder.status.setText(listData.get(position).getStatus());
@@ -159,6 +180,7 @@ public class OrderAdapter extends BaseAdapter {
         Button complete;
         Button delete;
         CardView cardView;
+        ImageView image;
 
     }
 

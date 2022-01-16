@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/drawer_layout"
+    android:layout_height="match_parent"
+    android:background="@drawable/employee88"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:scrollbars="vertical">
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="386dp"
+            android:layout_height="421dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            app:cardBackgroundColor="#A7D5EA"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#101E6A">
+
+                <TextView
+                    android:id="@+id/textView41"
+                    android:layout_width="229dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="38dp"
+                    android:layout_marginEnd="71dp"
+                    android:layout_marginRight="71dp"
+                    android:text="Emplyee Name :"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="279dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="158dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="33dp"
+                    android:background="@drawable/round_corner"
+                    android:backgroundTint="#E4DFDF"
+                    android:ems="10"
+                    android:hint="Contact number"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.432" />
+
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="268dp"
+                    android:layout_height="39dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginLeft="185dp"
+                    android:layout_marginTop="240dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="133dp"
+                    android:background="@drawable/round_corner"
+                    android:backgroundTint="#E4DFDF"
+                    android:ems="10"
+                    android:hint="Address"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.432" />
+
+                <EditText
+                    android:id="@+id/name7"
+                    android:layout_width="279dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="78dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="33dp"
+                    android:background="@drawable/round_corner"
+                    android:backgroundTint="#E4DFDF"
+                    android:ems="10"
+                    android:hint="  Enter your email or username"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.432" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="279dp"
+                    android:layout_height="37dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="78dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginRight="33dp"
+                    android:background="@drawable/round_corner"
+                    android:backgroundTint="#E4DFDF"
+                    android:ems="10"
+                    android:hint="Employee name"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.432" />
+
+                <TextView
+                    android:id="@+id/textView42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginTop="134dp"
+                    android:text="Contact Number :"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView43"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="31dp"
+                    android:layout_marginLeft="31dp"
+                    android:layout_marginBottom="144dp"
+                    android:text="Address :"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/confirm"
+                    android:layout_width="158dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="160dp"
+                    android:layout_marginLeft="160dp"
+                    android:layout_marginBottom="33dp"
+                    android:text="View all"
+                    android:onClick="onClickRetrieveStudents"
+                    android:textStyle="bold"
+                    app:backgroundTint="#3F51B5" />
+
+                <Button
+                    android:id="@+id/confirm3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="46dp"
+                    android:layout_marginLeft="46dp"
+                    android:layout_marginBottom="33dp"
+                    android:text="add"
+                    android:textStyle="bold"
+                    app:backgroundTint="#3F51B5"
+                    android:onClick="onClickAddName"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ListView
+            android:id="@+id/branch_list"
+            android:layout_width="392dp"
+            android:layout_height="654dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="500dp"
+            android:dividerHeight="1dp"></ListView>
+    </RelativeLayout>
+
+    </ScrollView>
+</androidx.drawerlayout.widget.DrawerLayout>

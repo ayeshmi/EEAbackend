@@ -41,6 +41,7 @@
                 android:layout_marginRight="12dp"
                 android:layout_marginBottom="120dp"
                 android:text="Hello Ayeshmi"
+                android:textColor="#100F0F"
                 android:textSize="17dp"
                 android:textStyle="bold" />
 
@@ -60,13 +61,14 @@
                 android:layout_marginRight="21dp"
                 android:layout_marginBottom="100dp"
                 android:text="Total Price (Rs.):"
+                android:textColor="#1B1919"
                 android:textSize="17dp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/img"
-                android:layout_width="127dp"
-                android:layout_height="101dp"
+                android:layout_width="117dp"
+                android:layout_height="89dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
@@ -75,9 +77,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="6dp"
                 android:layout_marginLeft="6dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="227dp"
-                android:layout_marginRight="227dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="242dp"
+                android:layout_marginRight="242dp"
                 android:layout_marginBottom="71dp"
                 app:srcCompat="@drawable/babycare" />
 
@@ -98,7 +100,9 @@
                 android:layout_marginRight="67dp"
                 android:layout_marginBottom="6dp"
                 android:text="CANCEL ORDER"
+                android:textColor="#FFFFFF"
                 android:textSize="12sp"
+                android:textStyle="bold"
                 app:backgroundTint="#3F51B5" />
 
             <Button
@@ -119,6 +123,7 @@
                 android:layout_marginBottom="7dp"
                 android:text="CONFIRM ORDER RECIVED"
                 android:textSize="12sp"
+                android:textStyle="bold"
                 app:backgroundTint="#4963F3" />
 
             <TextView
@@ -137,7 +142,8 @@
                 android:layout_marginEnd="75dp"
                 android:layout_marginRight="75dp"
                 android:layout_marginBottom="99dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#0E0D0D" />
 
             <TextView
                 android:id="@+id/textView36"
@@ -152,6 +158,8 @@
                 android:layout_marginTop="97dp"
                 android:layout_marginBottom="66dp"
                 android:text="Status :"
+                android:textColor="#120F0F"
+                android:textColorHint="#1C1919"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -171,7 +179,8 @@
                 android:layout_marginEnd="39dp"
                 android:layout_marginRight="39dp"
                 android:layout_marginBottom="67dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#1B1515" />
 
         </RelativeLayout>
 

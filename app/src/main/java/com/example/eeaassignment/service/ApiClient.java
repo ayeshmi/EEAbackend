@@ -29,9 +29,6 @@ public class ApiClient {
         return retrofit;
     }
 
-
-
-
     public static UserService getUserService(){
         UserService userService = getRetrofit().create(UserService.class);
 

@@ -31,7 +31,7 @@ Button register;
         });
     }
     private void loginActivity() {
-        Intent intent=new Intent(this,BranchesDetails.class);
+        Intent intent=new Intent(this,PRoviders.class);
         startActivity(intent);
     }
     private void registerActivity() {

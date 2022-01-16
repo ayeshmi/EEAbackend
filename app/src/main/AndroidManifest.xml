@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EEAassignment">
-        <activity android:name=".ConfirmOrder"></activity>
+        <activity android:name=".ViewAllBranched"></activity>
+        <activity android:name=".PRoviders" />
+        <activity android:name=".ConfirmOrder" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -63,6 +65,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".StudentsProvider"
+            android:authorities="com.example.eeaassignment.StudentsProvider" />
     </application>
 
 </manifest>

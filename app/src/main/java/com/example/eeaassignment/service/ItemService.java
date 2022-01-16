@@ -2,6 +2,7 @@ package com.example.eeaassignment.service;
 
 import com.example.eeaassignment.model.Item;
 import com.example.eeaassignment.dto.ItemDTO;
+import com.example.eeaassignment.model.User;
 
 import java.util.List;
 
@@ -27,4 +28,6 @@ public interface ItemService {
     Call<ResponseBody> updateItem(@Body ItemDTO item,@Path(value = "id", encoded = true) Long id);
     @GET("viewSelectedCategoryItemRA/{name}")
     Call<List<Item>> getSelectedCategoryItems(@Path(value = "name", encoded = true) String name);
+    @GET("advanceItemSearchAPI/{search}")
+    Call<List<Item>> advanceItemSearch(@Path(value = "search", encoded = true) String search);
 }

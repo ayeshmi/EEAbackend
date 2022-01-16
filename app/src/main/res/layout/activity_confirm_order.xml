@@ -19,7 +19,7 @@
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="1300dp"
+            android:layout_height="1000dp"
             android:layout_margin="20dp"
             android:orientation="vertical">
 
@@ -38,11 +38,12 @@
                 android:layout_marginEnd="41dp"
                 android:layout_marginRight="41dp"
                 android:background="@drawable/round_corner"
-                android:backgroundTint="#E4DFDF"
+                android:backgroundTint="#1e90ff"
                 android:ems="10"
-                android:hint="  Enter your email or username"
+                android:hint="  Enter your name"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,11 +65,12 @@
                 android:layout_marginEnd="41dp"
                 android:layout_marginRight="41dp"
                 android:background="@drawable/round_corner"
-                android:backgroundTint="#E4DFDF"
+                android:backgroundTint="#1e90ff"
                 android:ems="10"
-                android:hint="  Enter your email or username"
+                android:hint="  Enter your contact number"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -90,11 +92,12 @@
                 android:layout_marginEnd="39dp"
                 android:layout_marginRight="39dp"
                 android:background="@drawable/round_corner"
-                android:backgroundTint="#E4DFDF"
+                android:backgroundTint="#1e90ff"
                 android:ems="10"
-                android:hint="  Enter your email or username"
+                android:hint="  Enter your address"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +118,9 @@
                 android:layout_marginTop="75dp"
                 android:layout_marginEnd="180dp"
                 android:layout_marginRight="180dp"
-                android:text="Customer Name:" />
+                android:text="Customer Name:"
+                android:textColor="#0E0C0C"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView38"
@@ -127,7 +132,9 @@
                 android:layout_marginStart="38dp"
                 android:layout_marginLeft="38dp"
                 android:layout_marginTop="179dp"
-                android:text="Contact Number :" />
+                android:text="Contact Number :"
+                android:textColor="#171515"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView39"
@@ -139,7 +146,9 @@
                 android:layout_marginStart="39dp"
                 android:layout_marginLeft="39dp"
                 android:layout_marginTop="292dp"
-                android:text="Address :" />
+                android:text="Address :"
+                android:textColor="#251D1D"
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="364dp"
@@ -147,7 +156,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="444dp"
+                android:layout_marginTop="525dp"
                 android:layout_marginEnd="0dp"
                 android:layout_marginRight="0dp"
                 app:cardBackgroundColor="#A7D5EA"
@@ -159,7 +168,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#101E6A">
 
                     <TextView
                         android:id="@+id/textView41"
@@ -175,10 +185,12 @@
                         android:layout_marginTop="38dp"
                         android:layout_marginEnd="71dp"
                         android:layout_marginRight="71dp"
-                        android:text="CardHolder Name :" />
+                        android:text="CardHolder Name :"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/name5"
+                        android:id="@+id/phone"
                         android:layout_width="279dp"
                         android:layout_height="37dp"
                         android:layout_marginStart="45dp"
@@ -189,9 +201,11 @@
                         android:background="@drawable/round_corner"
                         android:backgroundTint="#E4DFDF"
                         android:ems="10"
-                        android:hint="  Enter your email or username"
+                        android:hint="Card number"
                         android:inputType="textPersonName"
                         android:paddingLeft="10dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -202,17 +216,19 @@
                         android:id="@+id/name9"
                         android:layout_width="103dp"
                         android:layout_height="35dp"
-                        android:layout_marginStart="45dp"
-                        android:layout_marginLeft="45dp"
-                        android:layout_marginTop="228dp"
+                        android:layout_marginStart="185dp"
+                        android:layout_marginLeft="165dp"
+                        android:layout_marginTop="240dp"
                         android:layout_marginEnd="33dp"
                         android:layout_marginRight="33dp"
                         android:background="@drawable/round_corner"
                         android:backgroundTint="#E4DFDF"
                         android:ems="10"
-                        android:hint="  Enter your email or username"
+                        android:hint="  CVV"
                         android:inputType="textPersonName"
-                        android:paddingLeft="10dp"
+
+                        android:textSize="14sp"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -220,20 +236,21 @@
                         app:layout_constraintVertical_bias="0.432" />
 
                     <EditText
-                        android:id="@+id/name10"
-                        android:layout_width="103dp"
+                        android:id="@+id/address"
+                        android:layout_width="123dp"
                         android:layout_height="35dp"
                         android:layout_marginStart="45dp"
                         android:layout_marginLeft="185dp"
-                        android:layout_marginTop="238dp"
+                        android:layout_marginTop="240dp"
                         android:layout_marginEnd="33dp"
                         android:layout_marginRight="133dp"
                         android:background="@drawable/round_corner"
                         android:backgroundTint="#E4DFDF"
                         android:ems="10"
-                        android:hint="  Enter your email or username"
+                        android:hint="Date"
                         android:inputType="textPersonName"
                         android:paddingLeft="10dp"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -262,7 +279,7 @@
                         app:layout_constraintVertical_bias="0.432" />
 
                     <EditText
-                        android:id="@+id/name8"
+                        android:id="@+id/name"
                         android:layout_width="279dp"
                         android:layout_height="37dp"
                         android:layout_marginStart="45dp"
@@ -273,9 +290,11 @@
                         android:background="@drawable/round_corner"
                         android:backgroundTint="#E4DFDF"
                         android:ems="10"
-                        android:hint="  Enter your email or username"
+                        android:hint="Card holder name"
                         android:inputType="textPersonName"
                         android:paddingLeft="10dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -292,7 +311,9 @@
                         android:layout_marginStart="23dp"
                         android:layout_marginLeft="23dp"
                         android:layout_marginTop="134dp"
-                        android:text="Card Number :" />
+                        android:text="Card Number :"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView43"
@@ -304,7 +325,9 @@
                         android:layout_marginStart="31dp"
                         android:layout_marginLeft="31dp"
                         android:layout_marginBottom="144dp"
-                        android:text="Expiration" />
+                        android:text="Expiration"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/confirm"
@@ -317,7 +340,26 @@
                         android:layout_marginLeft="121dp"
                         android:layout_marginBottom="33dp"
                         android:text="Confirm"
+                        android:textStyle="bold"
                         app:backgroundTint="#3F51B5" />
+
+                    <TextView
+                        android:id="@+id/textView47"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="189dp"
+                        android:layout_marginLeft="189dp"
+                        android:layout_marginEnd="82dp"
+                        android:layout_marginRight="82dp"
+                        android:layout_marginBottom="147dp"
+                        android:text="CVV :"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -334,9 +376,26 @@
                 android:layout_marginTop="409dp"
                 android:scrollbars="none"
                 android:text="Card Details."
+                android:textColor="#171616"
                 android:textColorHint="#171414"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="331dp"
+                android:layout_height="68dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="451dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                app:srcCompat="@drawable/visamaster" />
 
 
         </RelativeLayout>

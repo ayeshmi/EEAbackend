@@ -1,10 +1,13 @@
 package com.example.eeaassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -43,11 +46,15 @@ public class Login2 extends AppCompatActivity {
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
                 if(TextUtils.isEmpty(username.getText().toString()) || TextUtils.isEmpty(password.getText().toString())){
-                    Toast.makeText(com.example.eeaassignment.Login2.this,"Username / Password Required", Toast.LENGTH_LONG).show();
+                    Toast toast =  Toast.makeText(Login2.this,"Username / Password Required", Toast.LENGTH_LONG);
+                    toast.show();
+
+
                 }else{
                     //proceed to login
                     login();
@@ -77,6 +84,8 @@ public class Login2 extends AppCompatActivity {
                   //  Log.d("myTag", "This is my message"+password.getText().toString());
                     Toast.makeText(com.example.eeaassignment.Login2.this,"Login Successful", Toast.LENGTH_LONG).show();
                     LoginResponse loginResponse = response.body();
+
+                    //add data into shared preference
                     sharedPrefs = Login2.this.getSharedPreferences("auth_details", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPrefs.edit();
                     editor.putString("token", response.body().getAccessToken());

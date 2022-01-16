@@ -34,4 +34,7 @@ public interface UserService {
 
     @PUT("updateUserRA/")
     Call<ResponseBody> updateUser(@Body User user);
+    @GET("advanceUserSearchAPI/{search}")
+    Call<List<User>> advanceUserSearch(@Path(value = "search", encoded = true) String search);
+
 }

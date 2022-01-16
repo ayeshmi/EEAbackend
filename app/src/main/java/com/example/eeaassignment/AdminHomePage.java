@@ -36,7 +36,7 @@ public class AdminHomePage extends AppCompatActivity implements NavigationView.O
         setContentView(R.layout.activity_admin_home_page);
         drawer = findViewById(R.id.drawer_layout);
 
-        int images[]={R.drawable.luanchingpage,R.drawable.lunchingimage};
+        int images[]={R.drawable.pharmacy1,R.drawable.pharmacy2,R.drawable.pharmacy3};
         v_flipper=findViewById(R.id.view_flipper);
 
         for(int image:images){

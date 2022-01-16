@@ -29,8 +29,8 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         login=(Button)findViewById(R.id.button3);
-        search=(Button)findViewById(R.id.button);
-        contactUs=(Button)findViewById(R.id.contactus);
+        search=(Button)findViewById(R.id.button3);
+        contactUs=(Button)findViewById(R.id.branch);
         drawer = findViewById(R.id.drawer_layout);
         int images[]={R.drawable.pharmacy1,R.drawable.pharmacy2,R.drawable.pharmacy3};
         v_flipper=findViewById(R.id.view_flipper);
@@ -40,18 +40,13 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
                 openActivity4();
             }
         });
-        search.setOnClickListener(new View.OnClickListener() {
+        contactUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openActivity1();
             }
         });
-        contactUs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                contactus();
-            }
-        });
+
 
         for(int image:images){
             flipperImage(image);
@@ -72,11 +67,11 @@ public class Homepage extends AppCompatActivity implements NavigationView.OnNavi
     }
 
     private void openActivity4() {
-        Intent intent=new Intent(this,AddPharmacist.class);
+        Intent intent=new Intent(this,Login1.class);
         startActivity(intent);
     }
     private void openActivity1() {
-        Intent intent=new Intent(this,Login1.class);
+        Intent intent=new Intent(this,BranchesDetails.class);
         startActivity(intent);
     }
     private void contactus() {

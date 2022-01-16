@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/drawer_layout"
     android:layout_height="match_parent"
+    android:background="@drawable/adminhome"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
@@ -48,140 +49,220 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:background="#2196F3"
-                android:text="Get Start"
+                android:text="GET START"
                 android:textColor="#fff"
                 android:textSize="20sp"
                 app:backgroundTint="#2196F3" />
 
-
             <Button
-                android:id="@+id/button"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="#f90"
-                android:text="Search By medicine"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                app:backgroundTint="#1A7AC5" />
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="360dp"
-                android:layout_height="250dp"
-                android:layout_margin="5dp"
-                app:cardBackgroundColor="#98C9EF"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                app:cardMaxElevation="12dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
-
-                <ImageView
-                    android:id="@+id/img"
-                    android:layout_width="216dp"
-                    android:layout_height="135dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/jointcare" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Joint Care"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="360dp"
-                android:layout_height="250dp"
-                android:layout_margin="5dp"
-                app:cardBackgroundColor="#98C9EF"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                app:cardMaxElevation="12dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
-
-                <ImageView
-                    android:id="@+id/img"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/babycare" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Baby Care"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="360dp"
-                android:layout_height="250dp"
-                android:layout_margin="5dp"
-                app:cardBackgroundColor="#98C9EF"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                app:cardMaxElevation="12dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
-
-                <ImageView
-                    android:id="@+id/img"
-                    android:layout_width="266dp"
-                    android:layout_height="199dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/animalcare" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Animal Care"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-
-            <Button
-                android:id="@+id/contactus"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="#f90"
-                android:text="SEE MORE"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                app:backgroundTint="#4091CF" />
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottomNavigationView"
+                android:id="@+id/branch"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:menu="@menu/bottom_nav_menu" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#2196F3"
+                android:text="OUR BRANCHES DETAILS"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                app:backgroundTint="#2196F3" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="359dp"
+                android:layout_height="173dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+
+                android:layout_marginEnd="26dp"
+                android:layout_marginRight="26dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="12dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="344dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite">
+
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="118dp"
+                        android:layout_height="112dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="9dp"
+                        app:srcCompat="@drawable/delivery" />
+
+                    <TextView
+                        android:id="@+id/textView50"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="51dp"
+                        android:layout_marginEnd="52dp"
+                        android:layout_marginRight="52dp"
+                        android:text="24 Hours Delivery"
+                        android:textColor="#3F51B5"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="349dp"
+                android:layout_height="195dp"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/teal_200"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="12dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="151dp"
+                    android:background="#38ACE1">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="288dp"
+                        android:layout_height="101dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="11dp"
+                        android:layout_marginRight="11dp"
+                        android:layout_marginBottom="3dp"
+                        app:srcCompat="@drawable/customers" />
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="249dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginStart="51dp"
+                        android:layout_marginLeft="51dp"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="13dp"
+                        android:layout_marginRight="13dp"
+                        android:text="GOOD CUSTOMERS"
+                        android:textColor="#0C0C0C"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="349dp"
+                android:layout_height="195dp"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/teal_200"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="12dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#38ACE1">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="288dp"
+                        android:layout_height="101dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="29dp"
+                        app:srcCompat="@drawable/drup" />
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="188dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginStart="82dp"
+                        android:layout_marginLeft="82dp"
+                        android:layout_marginTop="19dp"
+                        android:layout_marginEnd="65dp"
+                        android:layout_marginRight="65dp"
+                        android:text="GOOD MEDICINES"
+                        android:textColor="#0C0C0C"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="349dp"
+                android:layout_height="195dp"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/teal_200"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="12dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#38ACE1">
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="308dp"
+                        android:layout_height="105dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginBottom="29dp"
+                        app:srcCompat="@drawable/pharmacist" />
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="212dp"
+                        android:layout_height="37dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginEnd="41dp"
+                        android:layout_marginRight="41dp"
+                        android:text="EXPIENCED PHARMACISTS"
+                        android:textColor="#0C0C0C"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
 
         </LinearLayout>
@@ -192,6 +273,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/nav_header"
+        android:background="@drawable/navbody"
+        android:textColor="#fff"
         app:menu="@menu/admin_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -31,7 +31,7 @@ Button register;
         });
     }
     private void loginActivity() {
-        Intent intent=new Intent(this,PRoviders.class);
+        Intent intent=new Intent(this,Login2.class);
         startActivity(intent);
     }
     private void registerActivity() {
